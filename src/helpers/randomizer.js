@@ -1,6 +1,6 @@
 import shuffle from 'shuffle-array'; 
 
-export function randomize(
+export default function randomize(
     nbTeams,
     persons, // TODO: only take available persons, either here or who ever calls this
     sortType,
@@ -23,7 +23,7 @@ export function randomize(
         workPersons.forEach((person) => {
             teams[teamIndex].persons.push(person);
 
-            (teamIndex === maxIndex) ? teamIndex = 0 : teamIndex++;
+            (teamIndex === maxIndex - 1) ? teamIndex = 0 : teamIndex++;
         });
 
         return teams;
