@@ -1,0 +1,30 @@
+{
+  "teamNumbers": 2,
+  "sortType:": "random",
+  "persons": [
+    {
+      "firstName": "Oli",
+      "lastName": "St-Louis",
+      "role": "BE",
+      "location": "MTL"
+    },
+    {
+      "firstName": "Rémi",
+      "lastName": "Lacorne",
+      "role": "FE",
+      "location": "MTL"
+    },
+    {
+      "firstName": "Sébastien",
+      "lastName": "Lépine",
+      "role": "FE",
+      "location": "HOME"
+    },
+    {
+      "firstName": "Francis",
+      "lastName": "Lapierre",
+      "role": "BE",
+      "location": "QC"
+    }
+  ]
+}
