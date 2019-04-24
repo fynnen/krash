@@ -1,5 +1,6 @@
 import React, { Component, useState, useRef } from 'react';
 import './App.css';
+import { ParticipantsList } from './components/ParticipantsList';
 import randomDataSet from './datasets/dataset-randomizer.json';
 import randomizer from './helpers/randomizer';
 import { BaseStyles, Themes } from './helpers/styles';
@@ -42,7 +43,7 @@ const Krash = () => {
     <div>
       <Themes theme={"night"} /> 
       <BaseStyles /> 
-      <ParticipantsInput save={saveParticipants} />
+      <ParticipantsList participants={participants} />
       <TeamsPanel teams={teams} />
     </div>
   )

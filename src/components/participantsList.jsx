@@ -1,19 +1,20 @@
 import React, { useState, useRef } from 'react';
-import { ParticipantStyled } from '.';
+import { ParticipantStyled } from './Participant';
 import { LOCATIONS, ROLES } from '../constants';
 
-export const participantsList = (props) => {
+export const ParticipantsList = (props) => {
   const { participants, updateParticipants } = props;
   const [editMode, setEditMode] = useState(false);
   const cancelEdit = () => {
     setEditMode(false);
   }
-  const component = editMode
-    ? <ParticipantsRead participants={participants} />
-    : <ParticipantsEdit participants={participants} cancel={cancelEdit} save={updateParticipants} />;
+
   return (
     <>
-      <component />
+      {editMode
+        ? <ParticipantsEdit participants={participants} cancel={cancelEdit} save={updateParticipants} />
+        : <ParticipantsRead participants={participants} />}
+
     </>
   );
 }
@@ -23,13 +24,13 @@ export const ParticipantsRead = (props) => {
   return (
     <ul>
       {participants.map((participant, i) => {
-        return <ParticipantStyled {...participant} />
+        return <ParticipantStyled participant={participant} />
       })}
     </ul>
   )
 }
 
-const getUpdatedParticipants = (participants, locationRefs, roleRefs, availabilityRefs) =>{
+const getUpdatedParticipants = (participants, locationRefs, roleRefs, availabilityRefs) => {
   return [];
 }
 
