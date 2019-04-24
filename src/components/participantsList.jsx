@@ -14,7 +14,7 @@ export const ParticipantsList = (props) => {
       {editMode
         ? <ParticipantsEdit participants={participants} cancel={cancelEdit} save={updateParticipants} />
         : <ParticipantsRead participants={participants} />}
-
+      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier</button>}
     </>
   );
 }
@@ -30,27 +30,45 @@ export const ParticipantsRead = (props) => {
   )
 }
 
-const getUpdatedParticipants = (participants, locationRefs, roleRefs, availabilityRefs) => {
-  return [];
+const getUpdatedParticipants = (participantInputs) => {
+  const updatedParticipants = participantInputs.map((participantInput, i) => {
+    const participant = Object.assign({}, participantInput.model);
+    participant.role = participantInput.locationRef && participantInput.locationRef.current && participantInput.locationRef.current.value;
+    participant.location = participantInput.roleRef && participantInput.roleRef.current && participantInput.roleRef.current.value;
+    console.log(participantInput.availabilityRef && participantInput.availabilityRef.current && participantInput.availabilityRef.current.value);
+    participant.available = participantInput.availabilityRef && participantInput.availabilityRef.current && participantInput.availabilityRef.current.value;
+    return participant;
+  })
+  return updatedParticipants;
+}
+
+const getParticipantInputs = (participants) => {
+  return participants.map((participant, i) => {
+    return {
+      model: participant,
+      locationRef: useRef(null),
+      roleRef: useRef(null),
+      availabilityRef: useRef(null),
+    }
+  });
 }
 
 export const ParticipantsEdit = (props) => {
   const { participants, cancel, save } = props;
-  const locationRefs = Array.from({ length: participants.length }, () => useRef(null));
-  const roleRefs = Array.from({ length: participants.length }, () => useRef(null));
-  const availabilityRefs = Array.from({ length: participants.length }, () => useRef(null));
+  const participantInputs = getParticipantInputs(participants);
 
-  const updatedParticipants = getUpdatedParticipants(participants, locationRefs, roleRefs, availabilityRefs);
+  const updatedParticipants = getUpdatedParticipants(participantInputs);
   return (
     <>
       <ul>
-        {participants.map((participant, i) => {
+        {participantInputs.map((participantInput, i) => {
           return (
             <ParticipantEdit
-              participant={participant}
-              locationRef={locationRefs[i]}
-              roleRef={roleRefs[i]}
-              availabilityRef={availabilityRefs[i]}
+              key={i}
+              participant={participantInput.model}
+              locationRef={participantInput.locationRefs}
+              roleRef={participantInput.roleRef}
+              availabilityRef={participantInput.availabilityRef}
             />
           )
         })}
@@ -85,7 +103,7 @@ const ParticipantEdit = (props) => {
       </select>
       <input
         type="checkbox"
-        checked={participant.available ? "true" : null}
+        checked={participant.available ? true : null}
         ref={availabilityRef}
       />
     </li>
