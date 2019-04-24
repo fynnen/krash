@@ -9,7 +9,7 @@ import { initialParticipants } from './initialStates';
 class App extends Component {
 
   componentDidMount() {
-    console.log(randomizer(3, randomDataSet.persons, "mixed"));
+    console.log(randomizer(3, randomDataSet.persons, SORTMETHODS.Mixed));
   }
 
   render() {
