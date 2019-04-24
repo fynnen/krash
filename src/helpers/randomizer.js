@@ -26,16 +26,18 @@ export default function randomize(
 }
 
 function splittedSort (persons, teams) {
-    teams[0].persons = persons.filter(person => person.location === "MTL");
-    teams[1].persons = persons.filter(person => person.location === "QC");
+    if ((teams.length === 2) && (teams[0].persons) && (teams[1].persons)) {
+        teams[0].persons = persons.filter(person => person.location === "MTL");
+        teams[1].persons = persons.filter(person => person.location === "QC");
 
-    shuffle(persons.filter(person => person.location === "HOME")).forEach(function(person, index) {
-        if (index % 2) {
-            teams[0].persons.push(person);
-        } else {
-            teams[1].persons.push(person);
-        }
-    });
+        shuffle(persons.filter(person => person.location === "HOME")).forEach(function(person, index) {
+            if (index % 2) {
+                teams[0].persons.push(person);
+            } else {
+                teams[1].persons.push(person);
+            }
+        });
+    }
 
     return teams;
 }
