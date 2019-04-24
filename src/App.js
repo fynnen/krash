@@ -2,6 +2,9 @@ import React, { Component, useState, useRef } from 'react';
 import './App.css';
 import randomDataSet from './datasets/dataset-randomizer.json';
 import randomizer from './helpers/randomizer';
+import { BaseStyles, Themes } from './helpers/styles';
+import { SORTMETHODS } from './constants';
+import { initialParticipants } from './initialStates';
 
 class App extends Component {
 
@@ -25,7 +28,7 @@ export default App;
 
 
 const Krash = () => {
-  const [participants, setParticipants] = useState([]);
+  const [participants, setParticipants] = useState(initialParticipants);
   const [sortMethod, setSortMethod] = useState(null);
   const [numberOfTeams, setNumberOfTeams] = useState(null);
   const teams = null; // randomizer(numberOfTeams, participants, sortMethod);
@@ -37,6 +40,8 @@ const Krash = () => {
   }
   return (
     <div>
+      <Themes theme={"night"} /> 
+      <BaseStyles /> 
       <ParticipantsInput save={saveParticipants} />
       <TeamsPanel teams={teams} />
     </div>
@@ -59,10 +64,9 @@ const ParticipantsInput = (props) => {
         placeholder="Liste des participants"
       />
       <select ref={sortMethodRef}>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option value={SORTMETHODS.Random}>Aleatoire</option>
+        <option value={SORTMETHODS.Mixed}>Melanger</option>
+        <option value={SORTMETHODS.Splitted}>Par lieu</option>
       </select>
       <input 
         type="number"
