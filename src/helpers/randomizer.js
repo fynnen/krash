@@ -1,4 +1,5 @@
 import shuffle from 'shuffle-array'; 
+import generateName from 'sillyname';
 
 export default function randomize(
     nbTeams,
@@ -15,26 +16,39 @@ export default function randomize(
     const teams = getTeams(nbTeams);
 
     if (sortType === "random") {
-        shuffle(workPersons);
+        return randomSort(workPersons, teams, nbTeams);
+    } else if (sortType === "mix") {
+        return mixedSort(workPersons, teams, nbTeams);
+    } else if (sortType === "splitted") {
 
-        let teamIndex = 0;
-        const maxIndex = nbTeams;
-        
-        workPersons.forEach((person) => {
-            teams[teamIndex].persons.push(person);
-
-            (teamIndex === maxIndex - 1) ? teamIndex = 0 : teamIndex++;
-        });
-
-        return teams;
     }
+    return null;
+}
+
+function randomSort(persons, teams, nbTeams) {
+    shuffle(persons);
+
+    let teamIndex = 0;
+    const maxIndex = nbTeams;
+    
+    persons.forEach((person) => {
+        teams[teamIndex].persons.push(person);
+
+        (teamIndex === maxIndex - 1) ? teamIndex = 0 : teamIndex++;
+    });
+
+    return teams;
+}
+
+function mixedSort(persons, teams, nbTeams) {
+
 }
 
 function getTeams(nbTeams) {
     const teams = [];
     for (let i = 0; i < nbTeams; i += 1) {
         teams.push({
-            name: 'TEAM_NAME_' + i, // TODO: dynamique
+            name: generateName(),
             persons: [],
         });
     }
