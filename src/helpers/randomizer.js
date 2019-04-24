@@ -17,12 +17,29 @@ export default function randomize(
 
     if (sortType === "random") {
         return randomSort(workPersons, teams, nbTeams);
-    } else if (sortType === "mix") {
+    } else if (sortType === "mixed") {
         return mixedSort(workPersons, teams, nbTeams);
     } else if (sortType === "splitted") {
-
+        return splittedSort(workPersons, teams);
     }
     return null;
+}
+
+function splittedSort (persons, teams) {
+    if ((teams.length === 2) && (teams[0].persons) && (teams[1].persons)) {
+        teams[0].persons = persons.filter(person => person.location === "MTL");
+        teams[1].persons = persons.filter(person => person.location === "QC");
+
+        shuffle(persons.filter(person => person.location === "HOME")).forEach(function(person, index) {
+            if (index % 2) {
+                teams[0].persons.push(person);
+            } else {
+                teams[1].persons.push(person);
+            }
+        });
+    }
+
+    return teams;
 }
 
 function randomSort(persons, teams, nbTeams) {
@@ -30,7 +47,7 @@ function randomSort(persons, teams, nbTeams) {
 
     let teamIndex = 0;
     const maxIndex = nbTeams;
-    
+
     persons.forEach((person) => {
         teams[teamIndex].persons.push(person);
 
@@ -41,7 +58,41 @@ function randomSort(persons, teams, nbTeams) {
 }
 
 function mixedSort(persons, teams, nbTeams) {
+    shuffle(persons);
+    
+    const personsByLocations = [];
 
+    persons.forEach((person) => {
+        let personByLocationExist = false;
+        personsByLocations.forEach((personsByLocation) => {
+            if (personsByLocation.location === person.location) {
+                personByLocationExist = true;
+            }
+        });
+
+        if (personByLocationExist) {
+            const personsByLocation = personsByLocations.find((personByLoc) => personByLoc.location === person.location);
+            personsByLocation.persons.push(person);
+        } else {
+            personsByLocations.push({
+                location: person.location,
+                persons: [person],
+            });
+        }
+    });
+
+    let teamIndex = 0;
+    let maxTeamIndex = nbTeams;
+
+    personsByLocations.forEach((locationTeam) => {
+        locationTeam.persons.forEach((person) => {
+            teams[teamIndex].persons.push(person);
+
+            (teamIndex === maxTeamIndex - 1) ? teamIndex = 0 : teamIndex++;
+        });
+    });
+
+    return teams;
 }
 
 function getTeams(nbTeams) {
