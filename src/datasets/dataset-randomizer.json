@@ -30,6 +30,33 @@
       "role": "BE",
       "location": "QC",
       "available": true
+    },    {
+      "firstName": "Oh",
+      "lastName": "Yeah",
+      "role": "BE",
+      "location": "MTL",
+      "available": true
+    },
+    {
+      "firstName": "Sweet",
+      "lastName": "Potato",
+      "role": "FE",
+      "location": "MTL",
+      "available": true
+    },
+    {
+      "firstName": "Salam",
+      "lastName": "Halecoum",
+      "role": "FE",
+      "location": "HOME",
+      "available": true
+    },
+    {
+      "firstName": "Toé",
+      "lastName": "Tu sens le beigne",
+      "role": "BE",
+      "location": "QC",
+      "available": true
     }
   ]
 }

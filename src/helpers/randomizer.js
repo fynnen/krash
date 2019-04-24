@@ -17,7 +17,7 @@ export default function randomize(
 
     if (sortType === "random") {
         return randomSort(workPersons, teams, nbTeams);
-    } else if (sortType === "mix") {
+    } else if (sortType === "mixed") {
         return mixedSort(workPersons, teams, nbTeams);
     } else if (sortType === "splitted") {
 
@@ -41,7 +41,41 @@ function randomSort(persons, teams, nbTeams) {
 }
 
 function mixedSort(persons, teams, nbTeams) {
+    shuffle(persons);
+    
+    const personsByLocations = [];
 
+    persons.forEach((person) => {
+        let personByLocationExist = false;
+        personsByLocations.forEach((personsByLocation) => {
+            if (personsByLocation.location === person.location) {
+                personByLocationExist = true;
+            }
+        });
+
+        if (personByLocationExist) {
+            const personsByLocation = personsByLocations.find((personByLoc) => personByLoc.location === person.location);
+            personsByLocation.persons.push(person);
+        } else {
+            personsByLocations.push({
+                location: person.location,
+                persons: [person],
+            });
+        }
+    });
+
+    let teamIndex = 0;
+    let maxTeamIndex = nbTeams;
+
+    personsByLocations.forEach((locationTeam) => {
+        locationTeam.persons.forEach((person) => {
+            teams[teamIndex].persons.push(person);
+
+            (teamIndex === maxTeamIndex - 1) ? teamIndex = 0 : teamIndex++;
+        });
+    });
+
+    return teams;
 }
 
 function getTeams(nbTeams) {
