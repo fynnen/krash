@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@githubprimer/octicons-react": "^8.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -11,8 +12,8 @@
     "redux": "^4.0.1",
     "redux-saga": "^1.0.2",
     "shuffle-array": "^1.0.1",
-    "styled-components": "^4.2.0",
-    "sillyname": "^0.1.0"
+    "sillyname": "^0.1.0",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
