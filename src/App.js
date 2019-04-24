@@ -2,6 +2,7 @@ import React, { Component, useState, useRef } from 'react';
 import './App.css';
 import randomDataSet from './datasets/dataset-randomizer.json';
 import randomizer from './helpers/randomizer';
+import {BaseStyles, Themes} from './helpers/styles';
 
 class App extends Component {
 
@@ -37,6 +38,8 @@ const Krash = () => {
   }
   return (
     <div>
+      <Themes theme={"night"} /> 
+      <BaseStyles /> 
       <ParticipantsInput save={saveParticipants} />
       <TeamsPanel teams={teams} />
     </div>
