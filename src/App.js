@@ -14,6 +14,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>KrAsH</h1>
+          <Krash />
         </header>
       </div>
     );
@@ -23,18 +24,16 @@ class App extends Component {
 export default App;
 
 
-const getTeams = (participants, sortMethod) => {
-
-  return [];
-}
-
 const Krash = () => {
   const [participants, setParticipants] = useState([]);
   const [sortMethod, setSortMethod] = useState(null);
-  const teams = getTeams(participants, sortMethod);
-  const saveParticipants = (participants, sortMethod) => {
-    setParticipants(participants);
-    setSortMethod(sortMethod);
+  const [numberOfTeams, setNumberOfTeams] = useState(null);
+  const teams = null; // randomizer(numberOfTeams, participants, sortMethod);
+
+  const saveParticipants = (numberOfTeamsInput, participantsInput, sortMethodInput) => {
+    setParticipants(participantsInput);
+    setSortMethod(sortMethodInput);
+    setNumberOfTeams(numberOfTeamsInput);
   }
   return (
     <div>
@@ -48,8 +47,10 @@ const ParticipantsInput = (props) => {
   const { save } = props;
   const participantsRef = useRef(null);
   const sortMethodRef = useRef(null);
+  const numberOfTeamsRef = useRef(null);
   const participants = null; //remplacer par les valeurs de ref
   const sortMethod = null; //remplacer par les valeurs de ref
+  const numberOfTeams = null; //remplace par les valeurs de ref
   return (
     <>
       <textarea
@@ -63,8 +64,12 @@ const ParticipantsInput = (props) => {
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
+      <input 
+        type="number"
+        placeholder="Nombre d'equipes"
+        ref={numberOfTeamsRef} />
       <button
-        onClick={() => save(participants, sortMethod)}
+        onClick={() => save(numberOfTeams, participants, sortMethod)}
         value="Sauvegarder"
       >
         Sauvegarder
