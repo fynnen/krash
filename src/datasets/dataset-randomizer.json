@@ -30,6 +30,20 @@
       "role": "BE",
       "location": "QC",
       "available": true
+    },
+    {
+      "firstName": "Jphn",
+      "lastName": "Doe",
+      "role": "BE",
+      "location": "QC",
+      "available": true
+    },
+    {
+      "firstName": "Martin",
+      "lastName": "Legros",
+      "role": "FE",
+      "location": "HOME",
+      "available": true
     }
   ]
 }

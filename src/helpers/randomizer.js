@@ -20,9 +20,24 @@ export default function randomize(
     } else if (sortType === "mix") {
         return mixedSort(workPersons, teams, nbTeams);
     } else if (sortType === "splitted") {
-
+        return splittedSort(workPersons, teams);
     }
     return null;
+}
+
+function splittedSort (persons, teams) {
+    teams[0] = persons.filter(person => person.location === "MTL");
+    teams[1] = persons.filter(person => person.location === "QC");
+
+    shuffle(persons.filter(person => person.location === "HOME")).forEach(function(person, index) {
+        if (index % 2) {
+            teams[0].push(person);
+        } else {
+            teams[1].push(person);
+        }
+    });
+
+    return teams;
 }
 
 function randomSort(persons, teams, nbTeams) {
@@ -30,7 +45,7 @@ function randomSort(persons, teams, nbTeams) {
 
     let teamIndex = 0;
     const maxIndex = nbTeams;
-    
+
     persons.forEach((person) => {
         teams[teamIndex].persons.push(person);
 
