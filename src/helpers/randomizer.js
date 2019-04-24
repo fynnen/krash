@@ -1,5 +1,6 @@
 import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
+import { SORTMETHODS } from '../constants';
 
 export default function randomize(
     nbTeams,
@@ -15,11 +16,11 @@ export default function randomize(
     const workPersons = [...persons];
     const teams = getTeams(nbTeams);
 
-    if (sortType === "random") {
+    if (sortType === SORTMETHODS.Random) {
         return randomSort(workPersons, teams, nbTeams);
-    } else if (sortType === "mixed") {
+    } else if (sortType === SORTMETHODS.Mixed) {
         return mixedSort(workPersons, teams, nbTeams);
-    } else if (sortType === "splitted") {
+    } else if (sortType === SORTMETHODS.Splitted) {
         return splittedSort(workPersons, teams);
     }
     return null;
@@ -59,7 +60,7 @@ function randomSort(persons, teams, nbTeams) {
 
 function mixedSort(persons, teams, nbTeams) {
     shuffle(persons);
-    
+
     const personsByLocations = [];
 
     persons.forEach((person) => {
