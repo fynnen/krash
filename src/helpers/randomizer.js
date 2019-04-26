@@ -20,24 +20,64 @@ export default function randomize(
     } else if (sortType === "mix") {
         return mixedSort(workPersons, teams, nbTeams);
     } else if (sortType === "splitted") {
-        return splittedSort(workPersons, teams);
+        return splittedSort(workPersons, teams, nbTeams);
     }
     return null;
 }
 
-function splittedSort (persons, teams) {
-    if ((teams.length === 2) && (teams[0].persons) && (teams[1].persons)) {
-        teams[0].persons = persons.filter(person => person.location === "MTL");
-        teams[1].persons = persons.filter(person => person.location === "QC");
 
-        shuffle(persons.filter(person => person.location === "HOME")).forEach(function(person, index) {
-            if (index % 2) {
-                teams[0].persons.push(person);
-            } else {
-                teams[1].persons.push(person);
-            }
-        });
+function splittedSort (persons, teams, nbTeams) {
+    shuffle(persons);
+
+    const mtlPersons = persons.filter(person => person.location === "MTL");
+    const qcPersons = persons.filter(person => person.location === "QC");
+    const homePersons = persons.filter(person => person.location === "HOME");;
+
+    // Initialisation des groupes
+    let group = [...Array(nbTeams)].map(() => []);
+
+    // Détermination du nombre de groupes de base MTL et QC
+    let nbMtl;
+    let nbQc;
+
+    if (mtlPersons.length > qcPersons.length) {
+        nbMtl = Math.round((qcPersons.length / mtlPersons.length) * nbTeams);
+        if (qcPersons.length && (nbMtl === nbTeams))  nbMtl = nbTeams - 1; // Au minium 1 groupe QC si des personnes QC existent
+        nbQc = nbTeams - nbMtl;
+    } else {
+        nbQc = Math.round((mtlPersons.length / qcPersons.length) * nbTeams);
+        if (mtlPersons.length && (nbQc === nbTeams))  nbQc = nbTeams - 1; // Au minium 1 groupe MTL si des personnesMTL existent
+        nbMtl = nbTeams - nbQc;
     }
+
+    // Population des groupes avec les MTL
+    let i = 0;
+    while (mtlPersons.length) {
+        if (i === nbMtl) i = 0;
+        group[i].push(mtlPersons.pop());
+        i = i + 1;
+    }
+
+    // Population des groupes avec les QC
+    i = nbQc;
+    while (qcPersons.length) {
+        if (i === nbTeams) i = nbQc;
+        group[i].push(qcPersons.pop());
+        i = i + 1;
+    }
+
+    // Population des groupes avec les HOME
+    while (homePersons.length) {
+        group.sort(function (a, b) { // Classer les groupes pour populer le plus petit
+            return a.length - b.length;
+        });
+        group[0].push(homePersons.pop());
+    }
+
+    // Attribution des groupes au équipes
+    teams.forEach((team, i) => {
+        team.persons = group[i];
+    });
 
     return teams;
 }
