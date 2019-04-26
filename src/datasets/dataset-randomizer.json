@@ -1,4 +1,4 @@
-{
+﻿{
   "isNightMode": true,
   "teamNumbers": 2,
   "sortType:": "random",
@@ -32,15 +32,22 @@
       "available": true
     },
     {
-      "firstName": "Jphn",
-      "lastName": "Doe",
+      "firstName": "Oh",
+      "lastName": "Yeah",
       "role": "BE",
-      "location": "QC",
+      "location": "MTL",
       "available": true
     },
     {
-      "firstName": "Martin",
-      "lastName": "Legros",
+      "firstName": "Sweet",
+      "lastName": "Potato",
+      "role": "FE",
+      "location": "MTL",
+      "available": true
+    },
+    {
+      "firstName": "Salam",
+      "lastName": "Halecoum",
       "role": "FE",
       "location": "HOME",
       "available": true
@@ -50,6 +57,13 @@
       "lastName": "Tremblay",
       "role": "BE",
       "location": "HOME",
+      "available": true
+    },
+    {
+      "firstName": "Toé",
+      "lastName": "Tu sens le beigne",
+      "role": "BE",
+      "location": "QC",
       "available": true
     }
   ]

@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Participant = ({participant, className}) => (
 <li className={className}>
     <h3>{participant.name}</h3>
-    <p className={participant.position}>{participant.position}</p>
+    <p className={participant.role}>{participant.role}</p>
     <p className={participant.location}>{participant.location}</p>
 </li>
 );

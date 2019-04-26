@@ -1,5 +1,6 @@
 import React, { Component, useState, useRef } from 'react';
 import './App.css';
+import { ParticipantsList } from './components/ParticipantsList';
 import randomDataSet from './datasets/dataset-randomizer.json';
 import randomizer from './helpers/randomizer';
 import { BaseStyles, Themes } from './helpers/styles';
@@ -9,7 +10,7 @@ import { initialParticipants } from './initialStates';
 class App extends Component {
 
   componentDidMount() {
-    console.log(randomizer(2, randomDataSet.persons, "splitted"));
+    console.log(randomizer(3, randomDataSet.persons, SORTMETHODS.Splitted));
   }
 
   render() {
@@ -42,7 +43,7 @@ const Krash = () => {
     <div>
       <Themes theme={"night"} /> 
       <BaseStyles /> 
-      <ParticipantsInput save={saveParticipants} />
+      <ParticipantsList participants={participants} />
       <TeamsPanel teams={teams} />
     </div>
   )

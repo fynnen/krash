@@ -1,5 +1,6 @@
-import shuffle from 'shuffle-array'; 
+﻿import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
+import { SORTMETHODS } from '../constants';
 
 export default function randomize(
     nbTeams,
@@ -15,16 +16,15 @@ export default function randomize(
     const workPersons = [...persons];
     const teams = getTeams(nbTeams);
 
-    if (sortType === "random") {
+    if (sortType === SORTMETHODS.Random) {
         return randomSort(workPersons, teams, nbTeams);
-    } else if (sortType === "mix") {
+    } else if (sortType === SORTMETHODS.Mixed) {
         return mixedSort(workPersons, teams, nbTeams);
-    } else if (sortType === "splitted") {
+    } else if (sortType === SORTMETHODS.Splitted) {
         return splittedSort(workPersons, teams, nbTeams);
     }
     return null;
 }
-
 
 function splittedSort (persons, teams, nbTeams) {
     shuffle(persons);
@@ -53,17 +53,17 @@ function splittedSort (persons, teams, nbTeams) {
     // Population des groupes avec les MTL
     let i = 0;
     while (mtlPersons.length) {
-        if (i === nbMtl) i = 0;
         group[i].push(mtlPersons.pop());
         i = i + 1;
+        if (i === nbMtl) i = 0;
     }
 
     // Population des groupes avec les QC
-    i = nbQc;
+    i = nbTeams - nbQc;
     while (qcPersons.length) {
-        if (i === nbTeams) i = nbQc;
         group[i].push(qcPersons.pop());
         i = i + 1;
+        if (i === nbTeams) i = nbTeams - nbQc;
     }
 
     // Population des groupes avec les HOME
@@ -98,7 +98,41 @@ function randomSort(persons, teams, nbTeams) {
 }
 
 function mixedSort(persons, teams, nbTeams) {
+    shuffle(persons);
 
+    const personsByLocations = [];
+
+    persons.forEach((person) => {
+        let personByLocationExist = false;
+        personsByLocations.forEach((personsByLocation) => {
+            if (personsByLocation.location === person.location) {
+                personByLocationExist = true;
+            }
+        });
+
+        if (personByLocationExist) {
+            const personsByLocation = personsByLocations.find((personByLoc) => personByLoc.location === person.location);
+            personsByLocation.persons.push(person);
+        } else {
+            personsByLocations.push({
+                location: person.location,
+                persons: [person],
+            });
+        }
+    });
+
+    let teamIndex = 0;
+    let maxTeamIndex = nbTeams;
+
+    personsByLocations.forEach((locationTeam) => {
+        locationTeam.persons.forEach((person) => {
+            teams[teamIndex].persons.push(person);
+
+            (teamIndex === maxTeamIndex - 1) ? teamIndex = 0 : teamIndex++;
+        });
+    });
+
+    return teams;
 }
 
 function getTeams(nbTeams) {
