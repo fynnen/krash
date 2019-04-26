@@ -67,6 +67,8 @@ function splittedSort (persons, teams, nbTeams) {
     }
 
     // Population des groupes avec les HOME
+    shuffle(group); // Pour une meilleure répartition des HOME
+
     while (homePersons.length) {
         group.sort(function (a, b) { // Classer les groupes pour populer le plus petit
             return a.length - b.length;
