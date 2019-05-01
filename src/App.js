@@ -1,9 +1,8 @@
 ﻿import React, { Component, useState, useRef } from 'react';
 import './App.css';
 import randomDataSet from './datasets/dataset-randomizer.json';
-import { ParticipantsList } from './components/ParticipantsList';
+import { ParticipantsList } from './components/participantsList';
 import { ParticipantStyled } from './components/Participant';
-import randomDataSet from './datasets/dataset-randomizer.json';
 import randomizer from './helpers/randomizer';
 import { BaseStyles, Themes } from './helpers/styles';
 import { SORTMETHODS } from './constants';
@@ -100,14 +99,24 @@ const ParticipantsInput = (props) => {
 
 const TeamsPanel = (props) => {
   const { teams } = props;
-  return(
-    <div>
-      {teams.map((team, i) => {
-        team.persons.map((participant, i) => {
-          return <ParticipantStyled participant={participant} />
-        });
-      })}
-      <hr />
-    </div>
+  console.log('ICI:', teams);
+  return (
+    <>
+    {
+      teams.map((team, i) => (
+        <>
+          <h3>{team.name}</h3>
+          <ul>
+            {team.persons.map((participant, i) => {
+              return <ParticipantStyled participant={participant} />
+            })}
+          </ul>
+          <hr />
+        </>
+      ))
+    }
+   </>
   )
 }
+
+
