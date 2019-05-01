@@ -15,13 +15,19 @@ class App extends Component {
     this.state = {
       persons: initialParticipants,
       teams: [],
+      numberOfTeams: 3,
     }
 
     this.randomize = this.randomize.bind(this);
+    this.updateNumberOfTeams = this.updateNumberOfTeams.bind(this);
+  }
+
+  updateNumberOfTeams(numberOfTeams) {
+    this.setState({ numberOfTeams });
   }
 
   randomize(sortMethod) {
-    const teams = randomizer(3, this.state.persons, sortMethod);
+    const teams = randomizer(this.state.numberOfTeams, this.state.persons, sortMethod);
 
     this.setState({ teams }, () => console.log(this.state.teams));
   }
@@ -31,7 +37,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>KrAsH</h1>
-          <Krash randomize={this.randomize} teams={this.state.teams} />
+          <Krash randomize={this.randomize} teams={this.state.teams} updateNumberOfTeams={this.updateNumberOfTeams} numberOfTeams={this.state.numberOfTeams} />
         </header>
       </div>
     );
@@ -52,12 +58,12 @@ const Krash = (props) => {
     setNumberOfTeams(numberOfTeamsInput);
   }
 
-  const { teams, randomize } = props;
+  const { teams, randomize, updateNumberOfTeams, numberOfTeams: numberOfTeamss } = props;
   return (
     <div>
       <Themes theme={"night"} /> 
       <BaseStyles /> 
-      <ParticipantsList randomize={randomize} participants={participants} />
+      <ParticipantsList randomize={randomize} participants={participants} updateNumberOfTeams={updateNumberOfTeams} numberOfTeams={numberOfTeamss} />
       <TeamsPanel teams={teams} />
     </div>
   )

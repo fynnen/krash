@@ -5,7 +5,7 @@ import { SORTMETHODS } from '../constants';
 import Octicon, {Pencil} from '@githubprimer/octicons-react'
 
 export const ParticipantsList = (props) => {
-  const { participants, updateParticipants, randomize } = props;
+  const { participants, updateParticipants, randomize, updateNumberOfTeams, numberOfTeams } = props;
   const [editMode, setEditMode] = useState(false);
   const cancelEdit = () => {
     setEditMode(false);
@@ -20,6 +20,7 @@ export const ParticipantsList = (props) => {
       <button onClick={() => randomize(SORTMETHODS.Random)}>Random</button>
       <button onClick={() => randomize(SORTMETHODS.Mixed)}>Mixed</button>
       <button onClick={() => randomize(SORTMETHODS.Splitted)}>Splitted</button>
+      <input type="number" onChange={(e) => updateNumberOfTeams(e.target.value)} defaultValue={numberOfTeams}></input>
     </>
   );
 }
