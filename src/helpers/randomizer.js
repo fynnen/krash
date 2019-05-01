@@ -4,7 +4,7 @@ import { LOCATIONS, SORTMETHODS } from '../constants';
 
 export default function randomize(
     nbTeams,
-    persons, // TODO: only take available persons, either here or who ever calls this
+    persons,
     sortType,
 ) {
     if (!persons || persons.length === 0) throw new Error('Persons must contains persons');
