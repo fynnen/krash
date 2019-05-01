@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
 
-const Participant = ({participant, className}) => (
-<li className={className}>
-    <h3>{participant.name}</h3>
-    <p className={participant.role}>{participant.role}</p>
-    <p className={participant.location}>{participant.location}</p>
-</li>
-);
+const Participant = ({participant, className}) => {
+    return (
+        <li className={className}>
+            <h3>{participant.name}</h3>
+            <p className={participant.role}>{participant.role}</p>
+            <p className={participant.location}>{participant.location}</p>
+        </li>
+    )
+};
 
 export const ParticipantStyled = styled(Participant)`
     .mtl {
@@ -19,10 +21,10 @@ export const ParticipantStyled = styled(Participant)`
     .home {
         background: var(--home);  
     }
-    .front {
+    .fe {
         background: var(--front);
     }
-    .back {
+    .be {
         background: var(--back);
     }
     .qa {

@@ -1,26 +1,26 @@
 export const initialParticipants = [
   {
     "name": "Oli St-Louis",
-    "role": "BE",
-    "location": "MTL",
+    "role": "be",
+    "location": "mtl",
     "available": true
   },
   {
     "name": "Rémi Lacorne",
-    "role": "FE",
-    "location": "MTL",
+    "role": "fe",
+    "location": "mtl",
     "available": true
   },
   {
     "name": "Sébastien Lepine",
-    "role": "FE",
-    "location": "HOME",
+    "role": "fe",
+    "location": "home",
     "available": true
   },
   {
     "name": "Francis Lapierre",
-    "role": "BE",
-    "location": "QC",
+    "role": "be",
+    "location": "qc",
     "available": true
   }
 ];

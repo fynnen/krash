@@ -1,6 +1,6 @@
 ﻿import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
-import { SORTMETHODS } from '../constants';
+import { LOCATIONS, SORTMETHODS } from '../constants';
 
 export default function randomize(
     nbTeams,
@@ -29,9 +29,9 @@ export default function randomize(
 function splittedSort (persons, teams, nbTeams) {
     shuffle(persons);
 
-    const mtlPersons = persons.filter(person => person.location === "MTL");
-    const qcPersons = persons.filter(person => person.location === "QC");
-    const homePersons = persons.filter(person => person.location === "HOME");;
+    const mtlPersons = persons.filter(person => person.location === LOCATIONS.Montreal);
+    const qcPersons = persons.filter(person => person.location === LOCATIONS.Quebec);
+    const homePersons = persons.filter(person => person.location === LOCATIONS.Home);;
 
     // Initialisation des groupes
     let group = [...Array(nbTeams)].map(() => []);

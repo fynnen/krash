@@ -5,12 +5,12 @@ export const SORTMETHODS = {
 };
 
 export const LOCATIONS = {
-  Montreal: "MTL",
-  Quebec: "QC",
-  Home: "HOME"
+  Montreal: "mtl",
+  Quebec: "qc",
+  Home: "home"
 };
 export const ROLES = {
-  FrontEnd: "FE",
-  BackEnd: "BE",
-  QA: "QA"
+  FrontEnd: "fe",
+  BackEnd: "be",
+  QA: "qa"
 };

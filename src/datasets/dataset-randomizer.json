@@ -6,64 +6,64 @@
     {
       "firstName": "Oli",
       "lastName": "St-Louis",
-      "role": "BE",
-      "location": "MTL",
+      "role": "be",
+      "location": "mtl",
       "available": true
     },
     {
       "firstName": "Rémi",
       "lastName": "Lacorne",
-      "role": "FE",
-      "location": "MTL",
+      "role": "fe",
+      "location": "mtl",
       "available": true
     },
     {
       "firstName": "Sébastien",
       "lastName": "Lépine",
-      "role": "FE",
-      "location": "HOME",
+      "role": "fe",
+      "location": "home",
       "available": true
     },
     {
       "firstName": "Francis",
       "lastName": "Lapierre",
-      "role": "BE",
-      "location": "QC",
+      "role": "be",
+      "location": "qc",
       "available": true
     },
     {
       "firstName": "Oh",
       "lastName": "Yeah",
-      "role": "BE",
-      "location": "MTL",
+      "role": "be",
+      "location": "mtl",
       "available": true
     },
     {
       "firstName": "Sweet",
       "lastName": "Potato",
-      "role": "FE",
-      "location": "MTL",
+      "role": "fe",
+      "location": "mtl",
       "available": true
     },
     {
       "firstName": "Salam",
       "lastName": "Halecoum",
-      "role": "FE",
-      "location": "HOME",
+      "role": "fe",
+      "location": "home",
       "available": true
     },
     {
       "firstName": "Charles",
       "lastName": "Tremblay",
-      "role": "BE",
-      "location": "HOME",
+      "role": "be",
+      "location": "home",
       "available": true
     },
     {
       "firstName": "Toé",
       "lastName": "Tu sens le beigne",
-      "role": "BE",
-      "location": "QC",
+      "role": "be",
+      "location": "qc",
       "available": true
     }
   ]
