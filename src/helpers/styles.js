@@ -33,6 +33,9 @@ export const BaseStyles = createGlobalStyle`
     background: var(--text);
     color: var(--background);
   }
+  ul {
+    list-style-type: none;
+  }
 `;
 
 export const Themes = createGlobalStyle`
