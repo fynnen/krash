@@ -8,20 +8,22 @@ export default function randomize(
     sortType,
 ) {
     if (!persons || persons.length === 0) throw new Error('Persons must contains persons');
+    
+    const personsAvailable = persons.filter((p) => p.available === true);
+    if (personsAvailable.length === 0) throw new Error('There must be available persons');
 
     if (!nbTeams || nbTeams < 1) throw new Error('Number of teams must be greater than 1');
     
-    if (persons.length < nbTeams) throw new Error('Persons must contain atleast the same number of teams asked.');
+    if (personsAvailable.length < nbTeams) throw new Error('Persons must contain atleast the same number of teams asked.');
 
-    const workPersons = [...persons];
     const teams = getTeams(nbTeams);
 
     if (sortType === SORTMETHODS.Random) {
-        return randomSort(workPersons, teams, nbTeams);
+        return randomSort(personsAvailable, teams, nbTeams);
     } else if (sortType === SORTMETHODS.Mixed) {
-        return mixedSort(workPersons, teams, nbTeams);
+        return mixedSort(personsAvailable, teams, nbTeams);
     } else if (sortType === SORTMETHODS.Splitted) {
-        return splittedSort(workPersons, teams, nbTeams);
+        return splittedSort(personsAvailable, teams, nbTeams);
     }
     return null;
 }
