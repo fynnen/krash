@@ -1,6 +1,7 @@
 ﻿import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
 import { LOCATIONS, SORTMETHODS } from '../constants';
+import { exists } from 'fs';
 
 export default function randomize(
     nbTeams,
@@ -31,12 +32,17 @@ export default function randomize(
 function splittedSort (persons, teams, nbTeams) {
     shuffle(persons);
 
-    const mtlPersons = persons.filter(person => person.location === LOCATIONS.Montreal);
-    const qcPersons = persons.filter(person => person.location === LOCATIONS.Quebec);
-    const homePersons = persons.filter(person => person.location === LOCATIONS.Home);;
+    let mtlPersons = persons.filter(person => person.location === LOCATIONS.Montreal);
+    let qcPersons = persons.filter(person => person.location === LOCATIONS.Quebec);
+    let homePersons = persons.filter(person => person.location === LOCATIONS.Home);;
 
     // Initialisation des groupes
-    let group = [...Array(nbTeams)].map(() => []);
+    // let group = [...Array(nbTeams)].map(() => []); // Not working... :-(
+
+    let group=[];
+    for (let i = 0 ; i < nbTeams ; i = i + 1) {
+        group[i]=[];
+    }
 
     // Détermination du nombre de groupes de base MTL et QC
     let nbMtl;
