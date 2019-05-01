@@ -1,6 +1,7 @@
 import React, { Component, useState, useRef } from 'react';
 import './App.css';
-import { ParticipantsList } from './components/participantsList';
+import { ParticipantsList } from './components/ParticipantsList';
+import { ParticipantStyled } from './components/Participant';
 import randomDataSet from './datasets/dataset-randomizer.json';
 import randomizer from './helpers/randomizer';
 import { BaseStyles, Themes } from './helpers/styles';
@@ -87,7 +88,12 @@ const TeamsPanel = (props) => {
   const { teams } = props;
   return(
     <div>
-      Placeholder pour remz le meilleur
+      {teams.map((team, i) => {
+        team.persons.map((participant, i) => {
+          return <ParticipantStyled participant={participant} />
+        });
+      })}
+      <hr />
     </div>
   )
 }
