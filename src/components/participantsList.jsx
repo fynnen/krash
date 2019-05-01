@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { ParticipantStyled } from './Participant';
 import { LOCATIONS, ROLES } from '../constants';
+import Octicon, {Pencil} from '@githubprimer/octicons-react'
 
 export const ParticipantsList = (props) => {
   const { participants, updateParticipants } = props;
@@ -14,7 +15,7 @@ export const ParticipantsList = (props) => {
       {editMode
         ? <ParticipantsEdit participants={participants} cancel={cancelEdit} save={updateParticipants} />
         : <ParticipantsRead participants={participants} />}
-      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier</button>}
+      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <Octicon icon={Pencil} ariaLabel="Add new item" /></button>}
     </>
   );
 }
