@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { ParticipantStyled } from './Participant';
 import { LOCATIONS, ROLES } from '../constants';
+import { SORTMETHODS } from '../constants';
 import Octicon, {Pencil} from '@githubprimer/octicons-react'
 
 export const ParticipantsList = (props) => {
-  const { participants, updateParticipants } = props;
+  const { participants, updateParticipants, randomize } = props;
   const [editMode, setEditMode] = useState(false);
   const cancelEdit = () => {
     setEditMode(false);
@@ -16,6 +17,9 @@ export const ParticipantsList = (props) => {
         ? <ParticipantsEdit participants={participants} cancel={cancelEdit} save={updateParticipants} />
         : <ParticipantsRead participants={participants} />}
       {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <Octicon icon={Pencil} ariaLabel="Add new item" /></button>}
+      <button onClick={() => randomize(SORTMETHODS.Random)}>Random</button>
+      <button onClick={() => randomize(SORTMETHODS.Mixed)}>Mixed</button>
+      <button onClick={() => randomize(SORTMETHODS.Splitted)}>Splitted</button>
     </>
   );
 }

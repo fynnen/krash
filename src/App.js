@@ -1,5 +1,6 @@
-import React, { Component, useState, useRef } from 'react';
+﻿import React, { Component, useState, useRef } from 'react';
 import './App.css';
+import randomDataSet from './datasets/dataset-randomizer.json';
 import { ParticipantsList } from './components/ParticipantsList';
 import { ParticipantStyled } from './components/Participant';
 import randomDataSet from './datasets/dataset-randomizer.json';
@@ -9,9 +10,21 @@ import { SORTMETHODS } from './constants';
 import { initialParticipants } from './initialStates';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
 
-  componentDidMount() {
-    console.log(randomizer(3, randomDataSet.persons, SORTMETHODS.Splitted));
+    this.state = {
+      persons: initialParticipants,
+      teams: [],
+    }
+
+    this.randomize = this.randomize.bind(this);
+  }
+
+  randomize(sortMethod) {
+    const teams = randomizer(3, this.state.persons, sortMethod);
+
+    this.setState({ teams }, () => console.log(this.state.teams));
   }
 
   render() {
@@ -19,7 +32,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>KrAsH</h1>
-          <Krash />
+          <Krash randomize={this.randomize} teams={this.state.teams} />
         </header>
       </div>
     );
@@ -29,22 +42,23 @@ class App extends Component {
 export default App;
 
 
-const Krash = () => {
+const Krash = (props) => {
   const [participants, setParticipants] = useState(initialParticipants);
   const [sortMethod, setSortMethod] = useState(null);
   const [numberOfTeams, setNumberOfTeams] = useState(null);
-  const teams = null; // randomizer(numberOfTeams, participants, sortMethod);
 
   const saveParticipants = (numberOfTeamsInput, participantsInput, sortMethodInput) => {
     setParticipants(participantsInput);
     setSortMethod(sortMethodInput);
     setNumberOfTeams(numberOfTeamsInput);
   }
+
+  const { teams, randomize } = props;
   return (
     <div>
       <Themes theme={"night"} /> 
       <BaseStyles /> 
-      <ParticipantsList participants={participants} />
+      <ParticipantsList randomize={randomize} participants={participants} />
       <TeamsPanel teams={teams} />
     </div>
   )
