@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef } from 'react';
+﻿import React, { useState } from 'react';
 import './App.css';
 import { ParticipantsList } from './components/participantsList';
 import { ParticipantStyled } from './components/Participant';
@@ -58,7 +58,6 @@ const RandomizeTeamControls = (props) => {
 
 const TeamsPanel = (props) => {
   const { teams } = props;
-  console.log('ICI:', teams);
   return (
     <>
     {
