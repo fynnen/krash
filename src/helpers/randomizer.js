@@ -1,7 +1,6 @@
 ﻿import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
 import { LOCATIONS, SORTMETHODS } from '../constants';
-import { exists } from 'fs';
 
 export default function randomize(
     nbTeams,
