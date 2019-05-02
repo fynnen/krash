@@ -1,6 +1,5 @@
-﻿import React, { Component, useState, useRef } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import './App.css';
-import randomDataSet from './datasets/dataset-randomizer.json';
 import { ParticipantsList } from './components/participantsList';
 import { ParticipantStyled } from './components/Participant';
 import randomizer from './helpers/randomizer';
@@ -8,40 +7,24 @@ import { BaseStyles, Themes } from './helpers/styles';
 import { SORTMETHODS } from './constants';
 import { initialParticipants } from './initialStates';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [persons, setPersons] = useState(initialParticipants);
+  const [teams, setTeams] = useState([]);
+  const [numberOfTeams, setNumberOfTeams] = useState(3);
 
-    this.state = {
-      persons: initialParticipants,
-      teams: [],
-      numberOfTeams: 3,
-    }
-
-    this.randomize = this.randomize.bind(this);
-    this.updateNumberOfTeams = this.updateNumberOfTeams.bind(this);
+  const randomize = (sortMethod) => {
+    const randomizedTeams = randomizer(numberOfTeams, persons, sortMethod);
+    setTeams(randomizedTeams);
   }
 
-  updateNumberOfTeams(numberOfTeams) {
-    this.setState({ numberOfTeams });
-  }
-
-  randomize(sortMethod) {
-    const teams = randomizer(this.state.numberOfTeams, this.state.persons, sortMethod);
-
-    this.setState({ teams }, () => console.log(this.state.teams));
-  }
-
-  render() {
-    return (
-      <div className="App">
+  return (
+    <div className="App">
         <header className="App-header">
           <h1>KrAsH</h1>
-          <Krash randomize={this.randomize} teams={this.state.teams} updateNumberOfTeams={this.updateNumberOfTeams} numberOfTeams={this.state.numberOfTeams} />
+          <Krash randomize={randomize} teams={teams} updateNumberOfTeams={setNumberOfTeams} numberOfTeams={numberOfTeams} />
         </header>
       </div>
-    );
-  }
+  );
 }
 
 export default App;
