@@ -1,11 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { ParticipantStyled } from './Participant';
 import { LOCATIONS, ROLES } from '../constants';
-import { SORTMETHODS } from '../constants';
 import Octicon, {Pencil} from '@githubprimer/octicons-react'
 
+const getImmutable = (fromArray) => {
+  const newArray = [];
+  fromArray.forEach(x => newArray.push(Object.assign({}, x)));
+  return newArray;
+}
+
+
 export const ParticipantsList = (props) => {
-  const { participants, updateParticipants, randomize, updateNumberOfTeams, numberOfTeams } = props;
+  const { participants, updateParticipants } = props;
   const [participantInputs, setParticipantsInput] = useState(participants);
   const [editMode, setEditMode] = useState(false);
   const cancelEdit = () => {
@@ -13,18 +19,20 @@ export const ParticipantsList = (props) => {
   }
 
   const updateInput = (id, field, value) => {
+    let participantsInput2 = getImmutable(participantInputs);
     console.log(`id: ${id} //// field: ${field} //// value: ${value}`);
-    let participantInput = participantInputs.find(x => x.id === id);
-    if(participantInput){
-      if(participantInput.hasOwnProperty(field)){
-        participantInput[field] = value;
-        setParticipantsInput(participantInputs);
-        console.log(participantInputs);
+    let index = participantsInput2.findIndex(x => x.id === id);
+    if(index !== -1){
+      if(participantsInput2[index].hasOwnProperty(field)){
+        participantsInput2[index][field] = value;
+        setParticipantsInput(participantsInput2);
+        console.log(participantsInput2);
       }
     }
   }
   const saveParticipants = () => {
     updateParticipants(participantInputs);
+    setEditMode(false);
   }
 
   console.log('render', participantInputs);
@@ -93,8 +101,8 @@ const ParticipantEdit = (props) => {
       </select>
       <input
         type="checkbox"
-        checked={participant.available ? true : null}
-        onChange={(event) => update(participant.id,'available', event.target.value) }
+        checked={participant.available ? true : false}
+        onChange={(event) => update(participant.id,'available', event.target.checked) }
       />
     </li>
   );
