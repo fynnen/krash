@@ -8,12 +8,12 @@ import { SORTMETHODS } from './constants';
 import { initialParticipants } from './initialStates';
 
 const App = () => {
-  const [persons, setPersons] = useState(initialParticipants);
+  const [participants, setParticipants] = useState(initialParticipants);
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
 
   const randomize = (sortMethod) => {
-    const randomizedTeams = randomizer(numberOfTeams, persons, sortMethod);
+    const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
     setTeams(randomizedTeams);
   }
 
@@ -21,7 +21,7 @@ const App = () => {
     <div className="App">
         <header className="App-header">
           <h1>KrAsH</h1>
-          <Krash randomize={randomize} teams={teams} updateNumberOfTeams={setNumberOfTeams} numberOfTeams={numberOfTeams} />
+          <Krash participants={participants} updateParticipants={setParticipants} randomize={randomize} teams={teams} updateNumberOfTeams={setNumberOfTeams} numberOfTeams={numberOfTeams} />
         </header>
       </div>
   );
@@ -31,59 +31,29 @@ export default App;
 
 
 const Krash = (props) => {
-  const [participants, setParticipants] = useState(initialParticipants);
-  const [sortMethod, setSortMethod] = useState(null);
-  const [numberOfTeams, setNumberOfTeams] = useState(null);
-
-  const saveParticipants = (numberOfTeamsInput, participantsInput, sortMethodInput) => {
-    setParticipants(participantsInput);
-    setSortMethod(sortMethodInput);
-    setNumberOfTeams(numberOfTeamsInput);
-  }
-
-  const { teams, randomize, updateNumberOfTeams, numberOfTeams: numberOfTeamss } = props;
+  const { participants, updateParticipants, teams, randomize, updateNumberOfTeams, numberOfTeams } = props;
   return (
     <div>
       <Themes theme={"night"} /> 
       <BaseStyles /> 
-      <ParticipantsList randomize={randomize} participants={participants} updateNumberOfTeams={updateNumberOfTeams} numberOfTeams={numberOfTeamss} />
+      <ParticipantsList participants={participants} updateParticipants={updateParticipants}  />
+      <RandomizeTeamControls randomize={randomize} updateNumberOfTeams={updateNumberOfTeams} numberOfTeams={numberOfTeams}/>
       <TeamsPanel teams={teams} />
     </div>
   )
 }
 
-const ParticipantsInput = (props) => {
-  const { save } = props;
-  const participantsRef = useRef(null);
-  const sortMethodRef = useRef(null);
-  const numberOfTeamsRef = useRef(null);
-  const participants = null; //remplacer par les valeurs de ref
-  const sortMethod = null; //remplacer par les valeurs de ref
-  const numberOfTeams = null; //remplace par les valeurs de ref
+const RandomizeTeamControls = (props) => {
+  const { randomize, updateNumberOfTeams, numberOfTeams } = props;
   return (
-    <>
-      <textarea
-        id="participants"
-        ref={participantsRef}
-        placeholder="Liste des participants"
-      />
-      <select ref={sortMethodRef}>
-        <option value={SORTMETHODS.Random}>Aleatoire</option>
-        <option value={SORTMETHODS.Mixed}>Melanger</option>
-        <option value={SORTMETHODS.Splitted}>Par lieu</option>
-      </select>
-      <input 
-        type="number"
-        placeholder="Nombre d'equipes"
-        ref={numberOfTeamsRef} />
-      <button
-        onClick={() => save(numberOfTeams, participants, sortMethod)}
-        value="Sauvegarder"
-      >
-        Sauvegarder
-      </button>
-    </>
+    <div>
+      <button onClick={() => randomize(SORTMETHODS.Random)}>Random</button>
+      <button onClick={() => randomize(SORTMETHODS.Mixed)}>Mixed</button>
+      <button onClick={() => randomize(SORTMETHODS.Splitted)}>Splitted</button>
+      <input type="number" onChange={(e) => updateNumberOfTeams(e.target.value)} defaultValue={numberOfTeams}></input>
+    </div>
   );
+
 }
 
 const TeamsPanel = (props) => {
@@ -97,7 +67,7 @@ const TeamsPanel = (props) => {
           <h3>{team.name}</h3>
           <ul>
             {team.persons.map((participant, i) => {
-              return <ParticipantStyled participant={participant} />
+              return <ParticipantStyled key={i} participant={participant} />
             })}
           </ul>
           <hr />

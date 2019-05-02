@@ -34,10 +34,6 @@ export const ParticipantsList = (props) => {
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
         : <ParticipantsRead participants={participants} />}
       {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <Octicon icon={Pencil} ariaLabel="Add new item" /></button>}
-      <button onClick={() => randomize(SORTMETHODS.Random)}>Random</button>
-      <button onClick={() => randomize(SORTMETHODS.Mixed)}>Mixed</button>
-      <button onClick={() => randomize(SORTMETHODS.Splitted)}>Splitted</button>
-      <input type="number" onChange={(e) => updateNumberOfTeams(e.target.value)} defaultValue={numberOfTeams}></input>
     </>
   );
 }
