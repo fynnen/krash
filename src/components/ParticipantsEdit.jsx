@@ -1,5 +1,5 @@
 import React from 'react';
-import {ParticipantEdit} from './ParticipantEdit';
+import ParticipantEdit from './ParticipantEdit';
 
 export const ParticipantsEdit = (props) => {
   const { participantInputs, cancel, update, save } = props;
@@ -21,5 +21,6 @@ export const ParticipantsEdit = (props) => {
       <button value="Sauvegarder" onClick={() => save()}>Sauvegarder</button>
     </>
   );
-
 }
+
+export default ParticipantsEdit;

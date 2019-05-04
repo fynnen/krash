@@ -28,3 +28,5 @@ export const ParticipantEdit = (props) => {
     </li>
   );
 }
+
+export default ParticipantEdit;

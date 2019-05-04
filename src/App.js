@@ -1,9 +1,12 @@
 ﻿import React, { useState } from 'react';
 import './App.css';
-import { ParticipantsList } from './components/participantsList';
-import { ParticipantStyled } from './components/Participant';
+
+import ParticipantsList from './components/participantsList';
+import ParticipantStyled from './components/styled/ParticipantStyled';
+import ToggleNightModeStyled from './components/styled/ToggleNightModeStyled';
+
 import randomizer from './helpers/randomizer';
-import { BaseStyles, Themes } from './helpers/styles';
+import { BaseStyles, Themes } from './helpers/globalStyles';
 import { SORTMETHODS } from './constants';
 import { initialParticipants } from './initialStates';
 
@@ -11,19 +14,33 @@ const App = () => {
   const [participants, setParticipants] = useState(initialParticipants);
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
+  const [toggleState, setToggleState] = useState("day");
 
   const randomize = (sortMethod) => {
     const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
     setTeams(randomizedTeams);
   }
 
+  function toggleNightMode() {
+    setToggleState(toggleState === "day" ? "night" : "day");
+  }
+
   return (
     <div className="App">
-        <header className="App-header">
-          <h1>KrAsH</h1>
-          <Krash participants={participants} updateParticipants={setParticipants} randomize={randomize} teams={teams} updateNumberOfTeams={setNumberOfTeams} numberOfTeams={numberOfTeams} />
-        </header>
-      </div>
+      <header className="App-header">
+        <h1>KrAsH</h1>
+        <ToggleNightModeStyled toggle={toggleNightMode} />
+      </header>
+      <Krash
+        numberOfTeams={numberOfTeams}
+        participants={participants}
+        randomize={randomize}
+        teams={teams}
+        toggleState={toggleState}
+        updateNumberOfTeams={setNumberOfTeams}
+        updateParticipants={setParticipants}
+      />
+    </div>
   );
 }
 
@@ -31,10 +48,19 @@ export default App;
 
 
 const Krash = (props) => {
-  const { participants, updateParticipants, teams, randomize, updateNumberOfTeams, numberOfTeams } = props;
+  const {
+    numberOfTeams,
+    participants,
+    randomize,
+    teams,
+    toggleState,
+    updateNumberOfTeams,
+    updateParticipants,
+  } = props;
+
   return (
-    <div>
-      <Themes theme={"night"} /> 
+    <div className="content">
+      <Themes theme={toggleState} /> 
       <BaseStyles /> 
       <ParticipantsList participants={participants} updateParticipants={updateParticipants}  />
       <RandomizeTeamControls randomize={randomize} updateNumberOfTeams={updateNumberOfTeams} numberOfTeams={numberOfTeams}/>
@@ -76,5 +102,3 @@ const TeamsPanel = (props) => {
    </>
   )
 }
-
-

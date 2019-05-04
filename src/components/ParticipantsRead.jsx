@@ -1,5 +1,5 @@
 import React from 'react';
-import { ParticipantStyled } from './Participant';
+import ParticipantStyled from './styled/ParticipantStyled';
 
 export const ParticipantsRead = (props) => {
   const { participants } = props;
@@ -10,4 +10,6 @@ export const ParticipantsRead = (props) => {
       })}
     </ul>
   )
-}
+};
+
+export default ParticipantsRead;

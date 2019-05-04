@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@githubprimer/octicons-react": "^8.5.0",
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.6.1",
     "react-redux": "^7.0.2",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.2",
     "shuffle-array": "^1.0.1",
     "sillyname": "^0.1.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "styled-reset": "^2.0.10"
   },
   "scripts": {
     "start": "react-scripts start",

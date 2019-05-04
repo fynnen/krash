@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Octicon, {Pencil} from '@githubprimer/octicons-react';
-import { ParticipantsRead } from './ParticipantsRead';
-import { ParticipantsEdit } from './ParticipantsEdit';
+import { IoMdCreate } from "react-icons/io";
+
+import ParticipantsRead from './ParticipantsRead';
+import ParticipantsEdit from './ParticipantsEdit';
 
 const getImmutable = (fromArray) => {
   const newArray = [];
@@ -41,7 +42,9 @@ export const ParticipantsList = (props) => {
       {editMode
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
         : <ParticipantsRead participants={participants} />}
-      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <Octicon icon={Pencil} ariaLabel="Add new item" /></button>}
+      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate ariaLabel="Add new item" /></button>}
     </>
   );
 }
+
+export default ParticipantsList;
