@@ -5,6 +5,7 @@ export const ToggleNightModeStyled = styled.button`
   border: none;
   cursor: pointer;
   height: 48px;
+  padding: 0;
 `;
 
 export default ToggleNightModeStyled;
