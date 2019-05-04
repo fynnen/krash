@@ -7,7 +7,7 @@ export const SORTMETHODS = {
 export const LOCATIONS = {
   MTL: {id: "mtl", name: "Montréal"},
   QC: {id: "qc", name: "Québec"},
-  HOME: {id: "home", name: "Home"},
+  HOME: {id: "home", name: "Distance"},
 };
 
 export const ROLES = {
