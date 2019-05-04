@@ -30,9 +30,6 @@ const baseColors = {
   }
 }
 
-  
-
-
 export const BaseStyles = createGlobalStyle`
   ${reset}
   html {
@@ -46,12 +43,6 @@ export const BaseStyles = createGlobalStyle`
     padding: 20px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  h1 {
-    color: ${paletteColors.title};
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 10px;
   }
   ul {
     list-style-type: none;

@@ -3,7 +3,7 @@ import './App.css';
 
 import ParticipantsList from './components/participantsList';
 import ParticipantStyled from './components/styled/ParticipantStyled';
-import ToggleNightModeStyled from './components/styled/ToggleNightModeStyled';
+import Header from './components/Header';
 
 import randomizer from './helpers/randomizer';
 import { BaseStyles, Themes } from './helpers/globalStyles';
@@ -14,7 +14,7 @@ const App = () => {
   const [participants, setParticipants] = useState(initialParticipants);
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
-  const [toggleState, setToggleState] = useState("day");
+  const [isNightMode, setisNightMode] = useState(false);
 
   const randomize = (sortMethod) => {
     const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
@@ -22,21 +22,21 @@ const App = () => {
   }
 
   function toggleNightMode() {
-    setToggleState(toggleState === "day" ? "night" : "day");
+    setisNightMode(isNightMode === true ? false : true);
   }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>KrAsH</h1>
-        <ToggleNightModeStyled toggle={toggleNightMode} />
-      </header>
+      <Header
+        toggleNightMode={toggleNightMode}
+        isNightMode={isNightMode}
+      />
       <Krash
         numberOfTeams={numberOfTeams}
         participants={participants}
         randomize={randomize}
         teams={teams}
-        toggleState={toggleState}
+        isNightMode={isNightMode}
         updateNumberOfTeams={setNumberOfTeams}
         updateParticipants={setParticipants}
       />
@@ -49,18 +49,18 @@ export default App;
 
 const Krash = (props) => {
   const {
+    isNightMode,
     numberOfTeams,
     participants,
     randomize,
     teams,
-    toggleState,
     updateNumberOfTeams,
     updateParticipants,
   } = props;
 
   return (
     <div className="content">
-      <Themes theme={toggleState} /> 
+      <Themes theme={isNightMode ? "night" : "day"} /> 
       <BaseStyles /> 
       <ParticipantsList participants={participants} updateParticipants={updateParticipants}  />
       <RandomizeTeamControls randomize={randomize} updateNumberOfTeams={updateNumberOfTeams} numberOfTeams={numberOfTeams}/>

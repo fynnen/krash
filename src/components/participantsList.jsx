@@ -42,7 +42,7 @@ export const ParticipantsList = (props) => {
       {editMode
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
         : <ParticipantsRead participants={participants} />}
-      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate ariaLabel="Add new item" /></button>}
+      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate aria-label="Add new item" /></button>}
     </>
   );
 }

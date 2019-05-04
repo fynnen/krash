@@ -9,6 +9,7 @@ export const LOCATIONS = {
   QC: {id: "qc", name: "Québec"},
   HOME: {id: "home", name: "Home"},
 };
+
 export const ROLES = {
   FE: {id: "fe", name: "Front-end"},
   BE: {id: "be", name: "Back-end"},

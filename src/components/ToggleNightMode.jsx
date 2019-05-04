@@ -1,13 +1,23 @@
-import React, { useState } from "react";
-import classNames from 'classnames';
-import { IoIosMoon, IoIosSunny } from "react-icons/io";
+import React from "react";
 
-export default function ToggleNightMode(props) {
+import ToggleNightModeIcon from './ToggleNightModeIcon';
+import ToggleNightModeStyled from './styled/ToggleNightModeStyled';
+
+export const ToggleNightMode = (props) =>  {
   const {
-    className: classNameStyled,
-    toggle,
+    isNightMode,
+    toggleNightMode,
   } = props;
-  const toggleNightModeClasses = classNames("toggle-night-mode", classNameStyled);
 
-  return <div className={toggleNightModeClasses} onClick={toggle} />;
-}
+  return (
+    <ToggleNightModeStyled
+      onClick={toggleNightMode}
+    >
+      <ToggleNightModeIcon
+        isNightMode={isNightMode}
+      />
+    </ToggleNightModeStyled>
+  );
+};
+
+export default ToggleNightMode;
