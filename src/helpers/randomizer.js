@@ -31,9 +31,9 @@ export default function randomize(
 function splittedSort (persons, teams, nbTeams) {
     shuffle(persons);
 
-    let mtlPersons = persons.filter(person => person.location === LOCATIONS.Montreal);
-    let qcPersons = persons.filter(person => person.location === LOCATIONS.Quebec);
-    let homePersons = persons.filter(person => person.location === LOCATIONS.Home);;
+    let mtlPersons = persons.filter(person => person.location === LOCATIONS.MTL);
+    let qcPersons = persons.filter(person => person.location === LOCATIONS.QC);
+    let homePersons = persons.filter(person => person.location === LOCATIONS.HOMES);;
 
     // Initialisation des groupes
     // let group = [...Array(nbTeams)].map(() => []); // Not working... :-(

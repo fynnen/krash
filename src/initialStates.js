@@ -2,29 +2,29 @@ export const initialParticipants = [
   {
     id : 1,
     name: "Oli St-Louis",
-    role: "be",
-    location: "mtl",
+    role: "BE",
+    location: "MTL",
     available: true
   },
   {
     id : 2,
     name: "Rémi Lacorne",
-    role: "fe",
-    location: "mtl",
+    role: "FE",
+    location: "MTL",
     available: true
   },
   {
     id : 3,
     name: "Sébastien Lepine",
-    role: "fe",
-    location: "home",
+    role: "FE",
+    location: "HOME",
     available: true
   },
   {
     id: 4,
     name: "Francis Lapierre",
-    role: "be",
-    location: "qc",
+    role: "BE",
+    location: "QC",
     available: true
   }
 ];
