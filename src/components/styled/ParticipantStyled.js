@@ -2,34 +2,35 @@ import styled from "styled-components";
 import Participant from '../Participant';
 
 export const ParticipantStyled = styled(Participant)`
+  margin-bottom: 15px;
+
   .mtl {
-    background: var(--mtl);
+    border-left-color: var(--mtl);
   }
   .qc {
-    background: var(--qc);
+    border-left-color: var(--qc);
   }
   .home {
-    background: var(--home);  
+    border-left-color: var(--home);  
   }
   .fe {
-    background: var(--front);
+    border-left-color: var(--front);
   }
   .be {
-    background: var(--back);
+    border-left-color: var(--back);
   }
   .qa {
-    background: var(--qa);
+    border-left-color: var(--qa);
   }
-
-  border: 1px solid var(--text);
-  padding: 10px;
-  margin: 5px 0;
-  h3 {
-    margin-bottom: 0;
+  h3{
+    font-size: 24px;
   }
   p {
-    display: inline-block;
-    padding: 15px 10px;
+    border-left-style: solid;
+    border-left-width: 6px;
+    margin-left: 15px;
+    margin-top: 5px;
+    padding: 5px 10px;
   }
 `;
 
