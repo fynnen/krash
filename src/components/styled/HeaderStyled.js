@@ -7,7 +7,6 @@ export const HeaderStyled = styled.header`
     background: ${isNightMode ? paletteColors.primary : paletteColors.primary};
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
     padding: 20px;
 
     h1 {

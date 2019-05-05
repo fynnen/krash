@@ -1,10 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 import reset from 'styled-reset'
 
-import { BREAKPOINTS as bp } from "../constants";
-import { mediaMinMax } from  "../helpers/mediaQuery";
-
-
 export const paletteColors = {
   primary: "#222831",
   secondary: "#393E46",
@@ -52,20 +48,11 @@ export const BaseStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  button {
-    background: var(--button);
+  button,
+  input {
     border: none;
-    border-radius: 1px;
-    color: var(--textInverted);
     cursor: pointer;
     height: 48px;
-    margin-right: 10px;
-    min-width: 75px;
-
-    ${mediaMinMax(bp.XS.min, bp.XS.max, `
-      margin-bottom: 15px;
-      width: 100%;
-    `)}
   }
 `;
 

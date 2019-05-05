@@ -38,12 +38,16 @@ export const ParticipantsMode = (props) => {
 
   console.log('render', participantInputs);
   return (
-    <>
-      {editMode
+      editMode
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
-        : <ParticipantsList participants={participants} />}
-      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate aria-label="Modifier les psrticipants" /></button>}
-    </>
+        : (
+          <>
+            <button onClick={() => setEditMode(true)} value="Modifier">
+              Modifier les participants <IoMdCreate />
+            </button>
+            <ParticipantsList participants={participants} />
+          </>
+        )
   );
 }
 

@@ -2,7 +2,7 @@ export const initialParticipants = [
   {
     id : 1,
     name: "Oli St-Louis",
-    role: "BE",
+    role: "QA",
     location: "MTL",
     available: true
   },
