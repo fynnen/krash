@@ -19,10 +19,10 @@ export const ROLES = {
 export const BREAKPOINTS = {
   XS: {
     min: 0,
-    max: 320,
+    max: 480,
   },
   SM: {
-    min: 321,
+    min: 481,
     max: 720,
   },
   MD: {

@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import Participant from '../Participant';
+import { BREAKPOINTS as bp } from "../../constants";
+import { mediaMin } from  "../../helpers/mediaQuery";
+
+import Participant from "../Participant";
 
 export const ParticipantStyled = styled(Participant)`
   margin-bottom: 15px;
@@ -23,17 +26,21 @@ export const ParticipantStyled = styled(Participant)`
     border-left-color: var(--qa);
   }
   h3{
-    font-size: 24px;
+    font-size: 18px;
   }
   p {
     border-left-style: solid;
-    border-left-width: 5px;
+    border-left-width: 4px;
     display: inline-block;
-    font-size: 14px;
+    font-size: 12px;
     margin-left: 15px;
     margin-top: 5px;
     min-width: 100px;
     padding: 5px;
+
+    ${mediaMin(bp.SM.min, `
+      display: block;
+    `)}
   }
 `;
 

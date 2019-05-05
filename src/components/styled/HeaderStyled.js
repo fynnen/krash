@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { paletteColors } from '../../helpers/globalStyles';
+import { paletteColors } from "../../helpers/globalStyles";
 
 export const HeaderStyled = styled.header`
   ${({ isNightMode }) => `
@@ -11,8 +11,10 @@ export const HeaderStyled = styled.header`
     padding: 20px;
 
     h1 {
+      align-items: center;
       color: ${paletteColors.title};
-      font-size: 40px;
+      display: flex;
+      font-size: 36px;
       font-weight: 700;
     }
   `}

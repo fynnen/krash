@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { paletteColors } from '../../helpers/globalStyles';
+import { paletteColors } from "../../helpers/globalStyles";
 
 export const ToggleNightModeIconStyled = styled.div`
     background-color: ${paletteColors.light};
@@ -9,9 +9,7 @@ export const ToggleNightModeIconStyled = styled.div`
     height: auto;
     padding: 5px;
     position: relative;
-    transition: all 0.6s;
     width: 50px;
-    -webkit-transition: translate 0.6s;
 
     &.day {
       justify-content: flex-end;
