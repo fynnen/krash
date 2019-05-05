@@ -24,7 +24,7 @@ const baseColors = {
     ...typeColors,
   },
   night: {
-    background: paletteColors.primary,
+    background: paletteColors.secondary,
     text: paletteColors.light,
     ...typeColors,
   }
@@ -37,15 +37,12 @@ export const BaseStyles = createGlobalStyle`
     color: var(--text);
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", "Roboto", "Oxygen", 
+    "Ubuntu", "Cantarell", "Fira Sans", 
+    "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  ul {
-    list-style-type: none;
   }
 `;
 

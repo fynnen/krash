@@ -1,13 +1,10 @@
 ﻿import React, { useState } from 'react';
 import './App.css';
 
-import ParticipantsList from './components/participantsList';
-import ParticipantStyled from './components/styled/ParticipantStyled';
 import Header from './components/Header';
+import Krash from './components/Krash';
 
 import randomizer from './helpers/randomizer';
-import { BaseStyles, Themes } from './helpers/globalStyles';
-import { SORTMETHODS } from './constants';
 import { initialParticipants } from './initialStates';
 
 const App = () => {
@@ -45,60 +42,3 @@ const App = () => {
 }
 
 export default App;
-
-
-const Krash = (props) => {
-  const {
-    isNightMode,
-    numberOfTeams,
-    participants,
-    randomize,
-    teams,
-    updateNumberOfTeams,
-    updateParticipants,
-  } = props;
-
-  return (
-    <div className="content">
-      <Themes theme={isNightMode ? "night" : "day"} /> 
-      <BaseStyles /> 
-      <ParticipantsList participants={participants} updateParticipants={updateParticipants}  />
-      <RandomizeTeamControls randomize={randomize} updateNumberOfTeams={updateNumberOfTeams} numberOfTeams={numberOfTeams}/>
-      <TeamsPanel teams={teams} />
-    </div>
-  )
-}
-
-const RandomizeTeamControls = (props) => {
-  const { randomize, updateNumberOfTeams, numberOfTeams } = props;
-  return (
-    <div>
-      <button onClick={() => randomize(SORTMETHODS.Random)}>Random</button>
-      <button onClick={() => randomize(SORTMETHODS.Mixed)}>Mixed</button>
-      <button onClick={() => randomize(SORTMETHODS.Splitted)}>Splitted</button>
-      <input type="number" onChange={(e) => updateNumberOfTeams(e.target.value)} defaultValue={numberOfTeams}></input>
-    </div>
-  );
-
-}
-
-const TeamsPanel = (props) => {
-  const { teams } = props;
-  return (
-    <>
-    {
-      teams.map((team, i) => (
-        <>
-          <h3>{team.name}</h3>
-          <ul>
-            {team.persons.map((participant, i) => {
-              return <ParticipantStyled key={i} participant={participant} />
-            })}
-          </ul>
-          <hr />
-        </>
-      ))
-    }
-   </>
-  )
-}

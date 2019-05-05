@@ -27,10 +27,13 @@ export const ParticipantStyled = styled(Participant)`
   }
   p {
     border-left-style: solid;
-    border-left-width: 6px;
+    border-left-width: 5px;
+    display: inline-block;
+    font-size: 14px;
     margin-left: 15px;
     margin-top: 5px;
-    padding: 5px 10px;
+    min-width: 100px;
+    padding: 5px;
   }
 `;
 

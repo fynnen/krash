@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { paletteColors } from '../../helpers/globalStyles';
 
 export const ToggleNightModeIconStyled = styled.div`
-  ${({ isNightMode }) => `
-    background-color: ${isNightMode ? paletteColors.light : paletteColors.secondary};
+    background-color: ${paletteColors.light};
     border-radius: 25px;
-    color: ${isNightMode ? paletteColors.primary : paletteColors.light};
+    color: ${paletteColors.primary};
     display: flex;
     height: auto;
     padding: 5px;
@@ -21,7 +20,6 @@ export const ToggleNightModeIconStyled = styled.div`
     &.night{
       justify-content: flex-start;
     }
-  `}
 `;
 
 export default ToggleNightModeIconStyled;

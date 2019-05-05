@@ -10,7 +10,10 @@ export const Header = (props) => {
   } = props; 
   
   return (
-    <HeaderStyled className="App-header">
+    <HeaderStyled
+      className="App-header"
+      isNightMode={isNightMode}
+    >
       <h1>KrAsH</h1>
       <ToggleNightMode
         isNightMode={isNightMode}

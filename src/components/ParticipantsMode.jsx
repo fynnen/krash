@@ -10,8 +10,7 @@ const getImmutable = (fromArray) => {
   return newArray;
 }
 
-
-export const ParticipantsList = (props) => {
+export const ParticipantsMode = (props) => {
   const { participants, updateParticipants } = props;
   const [participantInputs, setParticipantsInput] = useState(participants);
   const [editMode, setEditMode] = useState(false);
@@ -31,6 +30,7 @@ export const ParticipantsList = (props) => {
       }
     }
   }
+  
   const saveParticipants = () => {
     updateParticipants(participantInputs);
     setEditMode(false);
@@ -42,9 +42,9 @@ export const ParticipantsList = (props) => {
       {editMode
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
         : <ParticipantsRead participants={participants} />}
-      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate aria-label="Add new item" /></button>}
+      {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate aria-label="Modifier les psrticipants" /></button>}
     </>
   );
 }
 
-export default ParticipantsList;
+export default ParticipantsMode;

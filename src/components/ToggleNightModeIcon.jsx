@@ -16,7 +16,6 @@ export const ToggleNightModeIcon = (props) => {
   return (
     <ToggleNightModeIconStyled
       className={toggleNightModeClasses}
-      isNightMode={isNightMode}
     >
       {(
         isNightMode ? 
