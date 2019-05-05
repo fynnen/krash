@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IoMdCreate } from "react-icons/io";
 
-import ParticipantsRead from './ParticipantsRead';
+import ParticipantsList from './ParticipantsList';
 import ParticipantsEdit from './ParticipantsEdit';
 
 const getImmutable = (fromArray) => {
@@ -41,7 +41,7 @@ export const ParticipantsMode = (props) => {
     <>
       {editMode
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
-        : <ParticipantsRead participants={participants} />}
+        : <ParticipantsList participants={participants} />}
       {!editMode && <button onClick={() => setEditMode(true)} value="Modifier">Modifier <IoMdCreate aria-label="Modifier les psrticipants" /></button>}
     </>
   );

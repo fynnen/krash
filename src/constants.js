@@ -15,3 +15,22 @@ export const ROLES = {
   BE: {id: "be", name: "Back-end"},
   QA: {id: "qa", name: "Qualité assurance"},
 };
+
+export const BREAKPOINTS = {
+  XS: {
+    min: 0,
+    max: 320,
+  },
+  SM: {
+    min: 321,
+    max: 720,
+  },
+  MD: {
+    min: 721,
+    max: 1024,
+  },
+  LG: {
+    min: 1025,
+    max: 99999,
+  }
+};

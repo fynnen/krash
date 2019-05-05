@@ -1,15 +1,16 @@
 import React from 'react';
 import ParticipantStyled from './styled/ParticipantStyled';
+import ParticipantsListStyled from './styled/ParticipantsListStyled';
 
-export const ParticipantsRead = (props) => {
+export const ParticipantsList = (props) => {
   const { participants } = props;
   return (
-    <ul>
+    <ParticipantsListStyled>
       {participants.map((participant, i) => {
         return <ParticipantStyled key={participant.id} participant={participant} />
       })}
-    </ul>
+    </ParticipantsListStyled>
   )
 };
 
-export default ParticipantsRead;
+export default ParticipantsList;

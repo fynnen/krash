@@ -12,8 +12,8 @@ export const Participant = ({participant, className}) => {
     return (
       <li className={className}>
         <h3>{participant.name}</h3>
-        <p className={participantRoleId}>{participantRoleName}</p>
         <p className={participantLocationId}>{participantLocationName}</p>
+        <p className={participantRoleId}>{participantRoleName}</p>
       </li>
     )
   }
