@@ -10,7 +10,8 @@ const App = () => {
   const [participants, setParticipants] = useState(initialParticipants);
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
-  const [isNightMode, setisNightMode] = useState(false);
+  const [isNightMode, setIsNightMode] = useState(false);
+  const [showParticipantsInfo, setShowParticipantsInfo] = useState(true);
 
   const randomize = (sortMethod) => {
     const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
@@ -18,7 +19,11 @@ const App = () => {
   }
 
   function toggleNightMode() {
-    setisNightMode(isNightMode === true ? false : true);
+    setIsNightMode(isNightMode === true ? false : true);
+  }
+
+  function toggleParticipantsInfo() {
+    setShowParticipantsInfo(showParticipantsInfo === true ? false : true);
   }
 
   return (
@@ -33,6 +38,8 @@ const App = () => {
         randomize={randomize}
         teams={teams}
         isNightMode={isNightMode}
+        showParticipantsInfo={showParticipantsInfo}
+        toggleParticipantsInfo={toggleParticipantsInfo}
         updateNumberOfTeams={setNumberOfTeams}
         updateParticipants={setParticipants}
       />

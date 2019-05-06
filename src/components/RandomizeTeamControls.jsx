@@ -4,9 +4,17 @@ import { SORTMETHODS } from '../constants';
 import RandomizeTeamControlsStyled from './styled/RandomizeTeamControlsStyled';
 
 export const RandomizeTeamControls = (props) => {
-  const { randomize, updateNumberOfTeams, numberOfTeams } = props;
+  const {
+    isNightMode,
+    numberOfTeams,
+    randomize,
+    updateNumberOfTeams,
+  } = props;
+
   return (
-    <RandomizeTeamControlsStyled>
+    <RandomizeTeamControlsStyled
+      isNightMode={isNightMode}
+    >
       <label>Nombre d'équipes :
         <input type="number" onChange={(e) => updateNumberOfTeams(e.target.value)} defaultValue={numberOfTeams}></input>
       </label>

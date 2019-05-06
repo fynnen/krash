@@ -1,8 +1,8 @@
 import React from 'react';
 import { LOCATIONS, ROLES } from '../constants';
 
-export const Participant = ({participant, className}) => {
-  if (!participant.role || !participant.location) return null;
+export const Participant = ({participant, className, showParticipantsInfo}) => {
+  if (!participant.firstName ||!participant.lastName || !participant.role || !participant.location) return null;
   const participantRoleId = ROLES[participant.role] && ROLES[participant.role].id;
   const participantRoleName = ROLES[participant.role] && ROLES[participant.role].name;
   const participantLocationId = LOCATIONS[participant.location] && LOCATIONS[participant.location].id;
@@ -11,9 +11,15 @@ export const Participant = ({participant, className}) => {
   if (participantRoleId && participantRoleName && participantLocationId && participantLocationName){
     return (
       <li className={className}>
-        <h3>{participant.name}</h3>
-        <p className={participantLocationId}>{participantLocationName}</p>
-        <p className={participantRoleId}>{participantRoleName}</p>
+        <h3>{`${participant.firstName} ${participant.lastName}`}</h3>
+        {
+          showParticipantsInfo && (
+            <div className="participant-info">
+            <p className={participantLocationId}>{participantLocationName}</p>
+            <p className={participantRoleId}>{participantRoleName}</p>
+          </div>
+          )
+        }
       </li>
     )
   }

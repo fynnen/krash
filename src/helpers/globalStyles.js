@@ -1,6 +1,9 @@
 import {createGlobalStyle} from "styled-components";
 import reset from 'styled-reset'
 
+import { BREAKPOINTS as bp } from "../constants";
+import { mediaMinMax } from  "../helpers/mediaQuery";
+
 export const paletteColors = {
   primary: "#222831",
   secondary: "#393E46",
@@ -36,6 +39,9 @@ const baseColors = {
 
 export const BaseStyles = createGlobalStyle`
   ${reset}
+  html * {
+    box-sizing: border-box;
+  }
   html {
     background: var(--background);
     color: var(--text);
@@ -53,6 +59,25 @@ export const BaseStyles = createGlobalStyle`
     border: none;
     cursor: pointer;
     height: 48px;
+    padding: 0;
+  }
+
+  ul{
+    display: grid;
+    grid-template-rows: auto;
+
+    ${mediaMinMax(bp.XS.min, bp.XS.max, `
+      grid-template-columns: 1fr;
+    `)}
+    ${mediaMinMax(bp.SM.min, bp.SM.max, `
+      grid-template-columns: repeat(2, 1fr);
+    `)}
+    ${mediaMinMax(bp.MD.min, bp.MD.max, `
+      grid-template-columns: repeat(3, 1fr);
+    `)}
+    ${mediaMinMax(bp.LG.min, bp.LG.max, `
+      grid-template-columns: repeat(4, 1fr);
+    `)}
   }
 `;
 
