@@ -14,6 +14,7 @@ const App = () => {
   const [numberOfTeams, setNumberOfTeams] = useState(3);
   const [isNightMode, setIsNightMode] = useState(false);
   const [showParticipantsInfo, setShowParticipantsInfo] = useState(true);
+  const [konami, setKonami] = useState(false);
 
   const randomize = (sortMethod) => {
     const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
@@ -21,7 +22,7 @@ const App = () => {
   }
 
   const easterEgg = () => {
-    alert('Konami code bitches!');
+    setKonami(!konami);
   }
 
   function toggleNightMode() {
@@ -39,7 +40,7 @@ const App = () => {
         toggleNightMode={toggleNightMode}
         isNightMode={isNightMode}
       />
-      <Snow />
+      {konami && <Snow />}
       <Krash
         numberOfTeams={numberOfTeams}
         participants={participants}
