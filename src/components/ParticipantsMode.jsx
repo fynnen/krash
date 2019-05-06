@@ -20,13 +20,11 @@ export const ParticipantsMode = (props) => {
 
   const updateInput = (id, field, value) => {
     let participantsInput2 = getImmutable(participantInputs);
-    console.log(`id: ${id} //// field: ${field} //// value: ${value}`);
     let index = participantsInput2.findIndex(x => x.id === id);
     if(index !== -1){
       if(participantsInput2[index].hasOwnProperty(field)){
         participantsInput2[index][field] = value;
         setParticipantsInput(participantsInput2);
-        console.log(participantsInput2);
       }
     }
   }
@@ -36,7 +34,6 @@ export const ParticipantsMode = (props) => {
     setEditMode(false);
   }
 
-  console.log('render', participantInputs);
   return (
       editMode
         ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />

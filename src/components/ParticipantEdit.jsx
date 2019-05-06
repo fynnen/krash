@@ -6,7 +6,6 @@ export const ParticipantEdit = (props) => {
     participant,
     update
   } = props;
-  console.log(participant);
   return (
     <li>
       <h3>{participant.name}</h3>

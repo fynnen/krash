@@ -3,7 +3,6 @@ import ParticipantEdit from './ParticipantEdit';
 
 export const ParticipantsEdit = (props) => {
   const { participantInputs, cancel, update, save } = props;
-  console.log('participantsEdit ', participantInputs);
   return (
     <>
       <ul>
