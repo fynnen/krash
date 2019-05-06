@@ -77,13 +77,6 @@ export const initialParticipants = [
     available: true
   },
   {
-    id: 11,
-    name: "Frédéric Croix",
-    role: "FE",
-    location: "MTL",
-    available: true
-  },
-  {
     id: 12,
     name: "Charles-Jérémy Colnet",
     role: "BE",
@@ -176,34 +169,27 @@ export const initialParticipants = [
   },
   {
     id: 25,
-    name: "David Larose",
-    role: "QA",
-    location: "MTL",
-    available: true
-  },
-  {
-    id: 26,
     name: "Victor Marchand",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
-    id: 27,
+    id: 26,
     name: "Kathleen Finnegan",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
-    id: 28,
+    id: 27,
     name: "Sofiane Benmila",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
-    id: 29,
+    id: 28,
     name: "Jean-François David",
     role: "QA",
     location: "MTL",
