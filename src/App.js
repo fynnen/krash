@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import Konami from 'react-konami';
 
+import Snow from './components/vendor/react-snow-effect/'
 import Header from './components/Header';
 import Krash from './components/Krash';
 
@@ -38,6 +39,7 @@ const App = () => {
         toggleNightMode={toggleNightMode}
         isNightMode={isNightMode}
       />
+      <Snow />
       <Krash
         numberOfTeams={numberOfTeams}
         participants={participants}
