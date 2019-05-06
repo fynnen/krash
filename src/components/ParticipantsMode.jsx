@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { IoMdCreate } from "react-icons/io";
 
 import ParticipantsList from './ParticipantsList';
 import ParticipantsEdit from './ParticipantsEdit';
@@ -11,7 +10,12 @@ const getImmutable = (fromArray) => {
 }
 
 export const ParticipantsMode = (props) => {
-  const { participants, updateParticipants } = props;
+  const {
+    isNightMode,
+    participants,
+    updateParticipants
+  } = props;
+
   const [participantInputs, setParticipantsInput] = useState(participants);
   const [editMode, setEditMode] = useState(false);
   const cancelEdit = () => {
@@ -38,16 +42,20 @@ export const ParticipantsMode = (props) => {
 
   console.log('render', participantInputs);
   return (
-      editMode
-        ? <ParticipantsEdit participantInputs={participantInputs} cancel={cancelEdit} update={updateInput} save={saveParticipants} />
-        : (
-          <>
-            <button onClick={() => setEditMode(true)} value="Modifier">
-              Modifier les participants <IoMdCreate />
-            </button>
-            <ParticipantsList participants={participants} />
-          </>
-        )
+    editMode
+      ? 
+        <ParticipantsEdit
+          cancel={cancelEdit}
+          participantInputs={participantInputs}
+          save={saveParticipants}
+          update={updateInput}
+        />
+      :
+        <ParticipantsList
+          isNightMode={isNightMode}
+          participants={participants}
+          setEditMode={setEditMode}
+        />
   );
 }
 

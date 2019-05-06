@@ -28,19 +28,22 @@ export const ParticipantStyled = styled(Participant)`
   h3{
     font-size: 18px;
   }
-  p {
-    border-left-style: solid;
-    border-left-width: 4px;
-    display: inline-block;
+  .participant-info {
     font-size: 12px;
     margin-left: 15px;
-    margin-top: 5px;
-    min-width: 100px;
-    padding: 5px;
 
-    ${mediaMin(bp.SM.min, `
-      display: block;
-    `)}
+    p {
+      border-left-style: solid;
+      border-left-width: 4px;
+      display: inline-block;
+      margin-top: 5px;
+      min-width: 100px;
+      padding: 5px;
+
+      ${mediaMin(bp.SM.min, `
+        display: block;
+      `)}
+    }
   }
 `;
 

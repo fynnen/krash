@@ -36,6 +36,9 @@ const baseColors = {
 
 export const BaseStyles = createGlobalStyle`
   ${reset}
+  html * {
+    box-sizing: border-box;
+  }
   html {
     background: var(--background);
     color: var(--text);
@@ -53,6 +56,7 @@ export const BaseStyles = createGlobalStyle`
     border: none;
     cursor: pointer;
     height: 48px;
+    padding: 0;
   }
 `;
 
