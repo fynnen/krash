@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import Konami from 'react-konami';
 
 import Header from './components/Header';
 import Krash from './components/Krash';
@@ -18,6 +19,10 @@ const App = () => {
     setTeams(randomizedTeams);
   }
 
+  const easterEgg = () => {
+    alert('Konami code bitches!');
+  }
+
   function toggleNightMode() {
     setIsNightMode(isNightMode === true ? false : true);
   }
@@ -28,6 +33,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Konami easterEgg={easterEgg} />
       <Header
         toggleNightMode={toggleNightMode}
         isNightMode={isNightMode}
