@@ -4,6 +4,7 @@ import Konami from 'react-konami';
 import Snow from './components/vendor/react-snow-effect/'
 import Header from './components/Header';
 import Krash from './components/Krash';
+import KonamiAudio from './components/KonamiAudio';
 
 import randomizer from './helpers/randomizer';
 import { initialParticipants } from './initialStates';
@@ -40,7 +41,12 @@ const App = () => {
         toggleNightMode={toggleNightMode}
         isNightMode={isNightMode}
       />
-      {konami && <Snow />}
+      {konami && (
+        <>
+          <Snow />
+          <KonamiAudio />
+        </>
+      )}
       <Krash
         numberOfTeams={numberOfTeams}
         participants={participants}
