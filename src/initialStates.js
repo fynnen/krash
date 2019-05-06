@@ -1,196 +1,224 @@
 export const initialParticipants = [
   {
     id : 1,
-    name: "Olivier St-Louis-Desjardins",
+    firstName: "Olivier",
+    lastName: "St-Louis-Desjardins",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id : 2,
-    name: "Rémi Lacorne",
+    firstName: "Rémi",
+    lastName: "Lacorne",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id : 3,
-    name: "Sébastien Lépine",
+    firstName: "Sébastien",
+    lastName: "Lépine",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 4,
-    name: "Francis Lapierre",
+    firstName: "Francis",
+    lastName: "Lapierre",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 5,
-    name: "Alexandre Daignault",
+    firstName: "Alexandre",
+    lastName: "Daignault",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 6,
-    name: "Philippe Lamarre",
+    firstName: "Philippe",
+    lastName: "Lamarre",
     role: "FE",
     location: "QC",
     available: true
   },
   {
     id: 7,
-    name: "Benoit Ducharme",
+    firstName: "Benoit",
+    lastName: "Ducharme",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 8,
-    name: "Nicolas Asselin",
+    firstName: "Nicolas",
+    lastName: "Asselin",
     role: "BE",
     location: "QC",
     available: true
   },
   {
     id: 9,
-    name: "Mathieu Corriveau",
+    firstName: "Mathieu",
+    lastName: "Corriveau",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 10,
-    name: "Cédric Edouard",
+    firstName: "Cédric",
+    lastName: "Edouard",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 11,
-    name: "Dominic Gauthier",
+    firstName: "Dominic",
+    lastName: "Gauthier",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 12,
-    name: "Charles-Jérémy Colnet",
+    firstName: "Charles-Jérémy",
+    lastName: "Colnet",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 13,
-    name: "Frédérik Charest",
+    firstName: "Frédérik",
+    lastName: "Charest",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 14,
-    name: "Xavier Vincent",
+    firstName: "Xavier",
+    lastName: "Vincent",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 15,
-    name: "Jacob Tremblay",
+    firstName: "Jacob",
+    lastName: "Tremblay",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 16,
-    name: "Véronique Leclerc",
+    firstName: "Véronique",
+    lastName: "Leclerc",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 17,
-    name: "Marc Bertrand",
+    firstName: "Marc",
+    lastName: "Bertrand",
     role: "BE",
     location: "QC",
     available: true
   },
   {
     id: 18,
-    name: "Patrice Gamelin",
+    firstName: "Patrice",
+    lastName: "Gamelin",
     role: "BE",
     location: "MTL",
     available: true
   },
   {
     id: 19,
-    name: "Marie-Ève Bournival",
+    firstName: "Marie-Ève",
+    lastName: "Bournival",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 20,
-    name: "Olivier Fortin",
+    firstName: "Olivier",
+    lastName: "Fortin",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 21,
-    name: "Martin Marquis",
+    firstName: "Martin",
+    lastName: "Marquis",
     role: "BE",
     location: "QC",
     available: true
   },
   {
     id: 22,
-    name: "Mykael Adam",
+    firstName: "Mykael",
+    lastName: "Adam",
     role: "FE",
     location: "QC",
     available: true
   },
   {
     id: 23,
-    name: "Frédéric Landry",
+    firstName: "Frédéric",
+    lastName: "Landry",
     role: "FE",
     location: "MTL",
     available: true
   },
   {
     id: 24,
-    name: "David Larose",
+    firstName: "David",
+    lastName: "Larose",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
     id: 25,
-    name: "Victor Marchand",
+    firstName: "Victor",
+    lastName: "Marchand",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
     id: 26,
-    name: "Kathleen Finnegan",
+    firstName: "Kathleen",
+    lastName: "Finnegan",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
     id: 27,
-    name: "Sofiane Benmila",
+    firstName: "Sofiane",
+    lastName: "Benmila",
     role: "QA",
     location: "MTL",
     available: true
   },
   {
     id: 28,
-    name: "Jean-François David",
+    firstName: "Jean-François",
+    lastName: "David",
     role: "QA",
     location: "MTL",
     available: true
