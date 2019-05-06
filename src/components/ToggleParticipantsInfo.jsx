@@ -14,6 +14,7 @@ export const ToggleParticipantsInfo = (props) =>  {
     <ToggleParticipantsInfoStyled
       isNightMode={isNightMode}
       onClick={toggleParticipantsInfo}
+      showParticipantsInfo={showParticipantsInfo}
     >
       <div className="toggle-participants-info">
         <IoIosPaper size="20px" />

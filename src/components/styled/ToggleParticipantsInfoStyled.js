@@ -2,26 +2,32 @@ import styled from "styled-components";
 import { paletteColors } from "../../helpers/globalStyles";
 
 export const ToggleParticipantsInfoStyled = styled.button`
-  align-items: center;
-  display: flex;
-  background: transparent;
-  justify-content: center;
-  width: 48px;
-
-  .toggle-participants-info {
+  ${({ isNightMode, showParticipantsInfo }) => `
     align-items: center;
-    background-color: ${paletteColors.secondary};
-    border-radius: 25px;
-    color: ${paletteColors.light};
     display: flex;
+    background: transparent;
     height: 30px;
-    justify-content: center;
-    min-height: 30px;
-    min-width: 30px;
-    padding: 5px;
-    position: relative;
-    width: 50%;
-  }
+    justify-content: flex-end;
+    width: 30px;
+
+    &:active,
+    &:focus {
+      .toggle-participants-info {
+        box-shadow: 3px 3px 10px ${paletteColors.secondary};
+      }
+    }
+
+    .toggle-participants-info {
+      align-items: center;
+      background-color: ${isNightMode ? paletteColors.light : paletteColors.secondary};
+      border-radius: 25px;
+      color: ${showParticipantsInfo ? paletteColors.title : (isNightMode ? paletteColors.secondary : paletteColors.light)};
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      position: relative;
+    }
+  `}
 `;
 
 export default ToggleParticipantsInfoStyled;
