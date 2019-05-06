@@ -1,7 +1,7 @@
 import React from 'react';
 import { LOCATIONS, ROLES } from '../constants';
 
-export const Participant = ({participant, className}) => {
+export const Participant = ({participant, className, showParticipantsInfo}) => {
   if (!participant.role || !participant.location) return null;
   const participantRoleId = ROLES[participant.role] && ROLES[participant.role].id;
   const participantRoleName = ROLES[participant.role] && ROLES[participant.role].name;
@@ -12,10 +12,14 @@ export const Participant = ({participant, className}) => {
     return (
       <li className={className}>
         <h3>{participant.name}</h3>
-        <div className="participant-info">
-          <p className={participantLocationId}>{participantLocationName}</p>
-          <p className={participantRoleId}>{participantRoleName}</p>
-        </div>
+        {
+          showParticipantsInfo && (
+            <div className="participant-info">
+            <p className={participantLocationId}>{participantLocationName}</p>
+            <p className={participantRoleId}>{participantRoleName}</p>
+          </div>
+          )
+        }
       </li>
     )
   }

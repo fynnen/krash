@@ -13,6 +13,8 @@ export const ParticipantsMode = (props) => {
   const {
     isNightMode,
     participants,
+    showParticipantsInfo,
+    toggleParticipantsInfo,
     updateParticipants
   } = props;
 
@@ -55,6 +57,8 @@ export const ParticipantsMode = (props) => {
           isNightMode={isNightMode}
           participants={participants}
           setEditMode={setEditMode}
+          showParticipantsInfo={showParticipantsInfo}
+          toggleParticipantsInfo={toggleParticipantsInfo}
         />
   );
 }
