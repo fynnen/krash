@@ -18,7 +18,7 @@ export const ParticipantsEdit = (props) => {
         {participantInputs.map((participantInput, i) => {
           return (
             <ParticipantEdit
-              key={participantInput.id}
+              key={`participant-edit-${participantInput.id}`}
               participant={participantInput}
               update={update}
             />

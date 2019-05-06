@@ -30,7 +30,7 @@ export const ParticipantsList = (props) => {
         {participants.map((participant, i) => {
           return (
             <ParticipantStyled
-              key={participant.id}
+              key={`participant-list-${participant.id}`}
               participant={participant}
               showParticipantsInfo={showParticipantsInfo}
             />

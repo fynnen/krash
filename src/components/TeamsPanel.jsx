@@ -7,16 +7,16 @@ export const TeamsPanel = (props) => {
   return (
     <>
     {
-      teams.map((team, i) => (
-        <>
+      teams.map((team, x) => (
+        <React.Fragment key={`team-${x}`}>
           <h3>{team.name}</h3>
           <ul>
             {team.persons.map((participant, i) => {
-              return <ParticipantStyled key={i} participant={participant} />
+              return <ParticipantStyled key={`team-${x}-participant-${i}`} participant={participant} />
             })}
           </ul>
           <hr />
-        </>
+        </React.Fragment>
       ))
     }
     </>
