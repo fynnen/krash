@@ -35,22 +35,23 @@ export const Krash = (props) => {
           )
         :
           (
-            <ParticipantsMode
-              isNightMode={isNightMode}
-              participants={participants}
-              showParticipantsInfo={showParticipantsInfo}
-              toggleParticipantsInfo={toggleParticipantsInfo}
-              updateParticipants={updateParticipants}
-            />
+            <>
+              <ParticipantsMode
+                isNightMode={isNightMode}
+                participants={participants}
+                showParticipantsInfo={showParticipantsInfo}
+                toggleParticipantsInfo={toggleParticipantsInfo}
+                updateParticipants={updateParticipants}
+              />
+              <RandomizeTeamControls
+                isNightMode={isNightMode}
+                numberOfTeams={numberOfTeams}
+                randomize={randomize}
+                updateNumberOfTeams={updateNumberOfTeams}
+              />
+            </>
           )
       }
-      <RandomizeTeamControls
-        isNightMode={isNightMode}
-        numberOfTeams={numberOfTeams}
-        randomize={randomize}
-        updateNumberOfTeams={updateNumberOfTeams}
-      />
-      
     </KrashStyled>
   )
 };
