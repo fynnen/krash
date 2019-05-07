@@ -3,18 +3,24 @@ import React from 'react';
 import HeaderStyled from './styled/HeaderStyled';
 import ToggleNightMode from './ToggleNightMode';
 
-const Header = props => {
-  const { isNightMode, toggleNightMode } = props;
-
+export const Header = (props) => {
+  const {
+    isNightMode,
+    toggleNightMode,
+  } = props; 
+  
   return (
-    <HeaderStyled className="App-header" isNightMode={isNightMode}>
+    <HeaderStyled
+      className="App-header"
+      isNightMode={isNightMode}
+    >
       <h1>KrAsH</h1>
       <ToggleNightMode
         isNightMode={isNightMode}
         toggleNightMode={toggleNightMode}
       />
     </HeaderStyled>
-  );
+  )
 };
 
 export default Header;
