@@ -13,7 +13,7 @@ const ParticipantsEdit = props => {
         Sauvegarder
       </button>
       <ul>
-        {participantInputs.map((participantInput, i) => {
+        {participantInputs.map(participantInput => {
           return (
             <ParticipantEdit
               key={`participant-edit-${participantInput.id}`}

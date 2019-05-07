@@ -9,7 +9,7 @@ const RandomizeTeamControls = props => {
   return (
     <RandomizeTeamControlsStyled isNightMode={isNightMode}>
       <label htmlFor="numberOfTeams">
-        Nombre d'équipes :
+        {"Nombre d'équipes :"}
         <input
           id="numberOfTeams"
           type="number"
