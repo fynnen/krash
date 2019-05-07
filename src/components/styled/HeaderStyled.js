@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { paletteColors } from "../../helpers/globalStyles";
+import styled from 'styled-components';
+import { paletteColors } from '../../helpers/globalStyles';
 
-export const HeaderStyled = styled.header`
+const HeaderStyled = styled.header`
   ${({ isNightMode }) => `
     align-content: center;
     background: ${isNightMode ? paletteColors.primary : paletteColors.primary};

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const KonamiAudioStyled = styled.audio`
+const KonamiAudioStyled = styled.audio`
   height: 0
   opacity: 0;
   overflow: hidden;

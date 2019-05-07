@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const KrashStyled = styled.div`
+const KrashStyled = styled.div`
   padding: 20px;
 `;
 

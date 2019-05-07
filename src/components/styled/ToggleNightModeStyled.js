@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const ToggleNightModeStyled = styled.button`
+const ToggleNightModeStyled = styled.button`
   background: transparent;
   padding: 0;
 `;

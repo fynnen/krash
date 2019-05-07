@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { paletteColors } from "../../helpers/globalStyles";
+import styled from 'styled-components';
+import { paletteColors } from '../../helpers/globalStyles';
 
-export const ToggleNightModeIconStyled = styled.div`
+const ToggleNightModeIconStyled = styled.div`
   background-color: ${paletteColors.light};
   border-radius: 25px;
   color: ${paletteColors.primary};
@@ -11,11 +11,11 @@ export const ToggleNightModeIconStyled = styled.div`
   position: relative;
   width: 50px;
 
-  &.day {
+  &.day {
     justify-content: flex-end;
   }
 
-  &.night{
+  &.night {
     justify-content: flex-start;
   }
 `;
