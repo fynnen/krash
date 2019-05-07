@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { BREAKPOINTS as bp } from '../../constants';
-import { mediaMin } from '../../helpers/mediaQuery';
+import styled from "styled-components";
+import { BREAKPOINTS as bp } from "../../constants";
+import { mediaMin } from  "../../helpers/mediaQuery";
 
-import Participant from '../Participant';
+import Participant from "../Participant";
 
-const ParticipantStyled = styled(Participant)`
+export const ParticipantStyled = styled(Participant)`
   margin-bottom: 15px;
 
   .mtl {
@@ -14,7 +14,7 @@ const ParticipantStyled = styled(Participant)`
     border-left-color: var(--qc);
   }
   .home {
-    border-left-color: var(--home);
+    border-left-color: var(--home);  
   }
   .fe {
     border-left-color: var(--front);
@@ -25,7 +25,7 @@ const ParticipantStyled = styled(Participant)`
   .qa {
     border-left-color: var(--qa);
   }
-  h3 {
+  h3{
     font-size: 18px;
   }
   .participant-info {
@@ -40,12 +40,9 @@ const ParticipantStyled = styled(Participant)`
       min-width: 100px;
       padding: 5px;
 
-      ${mediaMin(
-        bp.SM.min,
-        `
+      ${mediaMin(bp.SM.min, `
         display: block;
-      `
-      )}
+      `)}
     }
   }
 `;

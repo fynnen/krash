@@ -1,24 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { BREAKPOINTS as bp } from '../../constants';
-import { paletteColors } from '../../helpers/globalStyles';
-import { mediaMin, mediaMinMax } from '../../helpers/mediaQuery';
+import { BREAKPOINTS as bp } from "../../constants";
+import { paletteColors } from "../../helpers/globalStyles";
+import { mediaMin, mediaMinMax } from  "../../helpers/mediaQuery";
 
-const RandomizeTeamControlsStyled = styled.div`
+export const RandomizeTeamControlsStyled = styled.div`
   ${({ isNightMode }) => `
-    border-top: 1px solid ${
-      isNightMode ? paletteColors.light : paletteColors.secondary
-    };
+    border-top: 1px solid ${isNightMode ? paletteColors.light : paletteColors.secondary};
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     padding-top: 20px;
-    ${mediaMin(
-      bp.SM.min,
-      `
+    ${mediaMin(bp.SM.min, `
       flex-direction: row;
-    `
-    )}
+    `)}
 
     button {
       background: var(--button);
@@ -31,15 +26,11 @@ const RandomizeTeamControlsStyled = styled.div`
       margin-right: 10px;
       min-width: 60px;
 
-      ${mediaMinMax(
-        bp.XS.min,
-        bp.XS.max,
-        `
+      ${mediaMinMax(bp.XS.min, bp.XS.max, `
         margin-bottom: 15px;
         max-width: 280px;
         width: 100%;
-      `
-      )}
+      `)}
 
       &:active,
       &:focus {
@@ -52,20 +43,13 @@ const RandomizeTeamControlsStyled = styled.div`
       justify-content: space-between;
       max-width: 280px;
 
-      ${mediaMinMax(
-        bp.XS.min,
-        bp.XS.max,
-        `
+      ${mediaMinMax(bp.XS.min, bp.XS.max, `
         margin-bottom: 15px;
-      `
-      )}
+      `)}
 
-      ${mediaMin(
-        bp.SM.min,
-        `
+      ${mediaMin(bp.SM.min, `
         margin-right: 15px;
-      `
-      )}
+      `)}
     }
     input {
       font-size: 20px;

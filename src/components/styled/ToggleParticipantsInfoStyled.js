@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { paletteColors } from '../../helpers/globalStyles';
+import styled from "styled-components";
+import { paletteColors } from "../../helpers/globalStyles";
 
-const ToggleParticipantsInfoStyled = styled.button`
+export const ToggleParticipantsInfoStyled = styled.button`
   ${({ isNightMode, showParticipantsInfo }) => `
     align-items: center;
     display: flex;
@@ -19,17 +19,9 @@ const ToggleParticipantsInfoStyled = styled.button`
 
     .toggle-participants-info {
       align-items: center;
-      background-color: ${
-        isNightMode ? paletteColors.light : paletteColors.secondary
-      };
+      background-color: ${isNightMode ? paletteColors.light : paletteColors.secondary};
       border-radius: 25px;
-      color: ${
-        showParticipantsInfo
-          ? paletteColors.title
-          : isNightMode
-          ? paletteColors.secondary
-          : paletteColors.light
-      };
+      color: ${showParticipantsInfo ? paletteColors.title : (isNightMode ? paletteColors.secondary : paletteColors.light)};
       display: flex;
       justify-content: center;
       padding: 5px;
