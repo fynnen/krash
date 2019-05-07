@@ -2,7 +2,7 @@ import React from 'react';
 
 import ParticipantStyled from './styled/ParticipantStyled';
 
-export const TeamsPanel = (props) => {
+const TeamsPanel = (props) => {
   const { teams } = props;
   return (
     <>

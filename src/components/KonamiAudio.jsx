@@ -1,18 +1,14 @@
-import React, {useRef, useEffect} from 'react';
-import mp3_file from '../assets/audio/soundtrack.mp3';
+import React, { useRef, useEffect } from 'react';
+import mp3File from '../assets/audio/soundtrack.mp3';
 
 import KonamiAudioStyled from './styled/KonamiAudioStyled';
 
-export const KonamiAudio = () => {
+const KonamiAudio = () => {
   const audioEl = useRef(null);
 
   useEffect(() => audioEl.current.play(), []);
 
-  return <KonamiAudioStyled
-          ref={audioEl}
-          src={mp3_file}
-          type="audio/mpeg"
-        />
+  return <KonamiAudioStyled ref={audioEl} src={mp3File} type="audio/mpeg" />;
 };
 
 export default KonamiAudio;

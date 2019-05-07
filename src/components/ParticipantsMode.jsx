@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import ParticipantsList from './ParticipantsList';
 import ParticipantsEdit from './ParticipantsEdit';
 
-const getImmutable = (fromArray) => {
+const getImmutable = fromArray => {
   const newArray = [];
   fromArray.forEach(x => newArray.push(Object.assign({}, x)));
   return newArray;
-}
+};
 
-export const ParticipantsMode = (props) => {
+const ParticipantsMode = props => {
   const {
     isNightMode,
     participants,
@@ -22,42 +22,42 @@ export const ParticipantsMode = (props) => {
   const [editMode, setEditMode] = useState(false);
   const cancelEdit = () => {
     setEditMode(false);
-  }
+  };
 
   const updateInput = (id, field, value) => {
-    let participantsInput2 = getImmutable(participantInputs);
-    let index = participantsInput2.findIndex(x => x.id === id);
-    if(index !== -1){
-      if(participantsInput2[index].hasOwnProperty(field)){
+    const participantsInput2 = getImmutable(participantInputs);
+    const index = participantsInput2.findIndex(x => x.id === id);
+    if (index !== -1) {
+      if (
+        Object.prototype.hasOwnProperty.call(participantsInput2[index], field)
+      ) {
         participantsInput2[index][field] = value;
         setParticipantsInput(participantsInput2);
       }
     }
-  }
-  
+  };
+
   const saveParticipants = () => {
     updateParticipants(participantInputs);
     setEditMode(false);
-  }
+  };
 
-  return (
-    editMode
-      ? 
-        <ParticipantsEdit
-          cancel={cancelEdit}
-          participantInputs={participantInputs}
-          save={saveParticipants}
-          update={updateInput}
-        />
-      :
-        <ParticipantsList
-          isNightMode={isNightMode}
-          participants={participants}
-          setEditMode={setEditMode}
-          showParticipantsInfo={showParticipantsInfo}
-          toggleParticipantsInfo={toggleParticipantsInfo}
-        />
+  return editMode ? (
+    <ParticipantsEdit
+      cancel={cancelEdit}
+      participantInputs={participantInputs}
+      save={saveParticipants}
+      update={updateInput}
+    />
+  ) : (
+    <ParticipantsList
+      isNightMode={isNightMode}
+      participants={participants}
+      setEditMode={setEditMode}
+      showParticipantsInfo={showParticipantsInfo}
+      toggleParticipantsInfo={toggleParticipantsInfo}
+    />
   );
-}
+};
 
 export default ParticipantsMode;

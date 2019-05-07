@@ -1,23 +1,27 @@
 import React from 'react';
 
-import { IoMdCreate } from "react-icons/io";
+import { IoMdCreate } from 'react-icons/io';
 import ParticipantStyled from './styled/ParticipantStyled';
 import ParticipantsListStyled from './styled/ParticipantsListStyled';
 import ToggleParticipantsInfo from './ToggleParticipantsInfo';
 
-export const ParticipantsList = (props) => {
+const ParticipantsList = props => {
   const {
     isNightMode,
     participants,
     setEditMode,
     showParticipantsInfo,
-    toggleParticipantsInfo,
+    toggleParticipantsInfo
   } = props;
 
   return (
     <ParticipantsListStyled>
       <div className="edit-participants-buttons">
-        <button onClick={() => setEditMode(true)} value="Modifier">
+        <button
+          onClick={() => setEditMode(true)}
+          type="button"
+          value="Modifier"
+        >
           Modifier les participants <IoMdCreate />
         </button>
         <ToggleParticipantsInfo
@@ -34,11 +38,11 @@ export const ParticipantsList = (props) => {
               participant={participant}
               showParticipantsInfo={showParticipantsInfo}
             />
-          )
+          );
         })}
       </ul>
     </ParticipantsListStyled>
-  )
+  );
 };
 
 export default ParticipantsList;

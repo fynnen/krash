@@ -1,14 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { IoIosPaper } from "react-icons/io";
+import { IoIosPaper } from 'react-icons/io';
 import ToggleParticipantsInfoStyled from './styled/ToggleParticipantsInfoStyled';
 
-export const ToggleParticipantsInfo = (props) =>  {
-  const {
-    isNightMode,
-    showParticipantsInfo,
-    toggleParticipantsInfo,
-  } = props;
+const ToggleParticipantsInfo = props => {
+  const { isNightMode, showParticipantsInfo, toggleParticipantsInfo } = props;
 
   return (
     <ToggleParticipantsInfoStyled
