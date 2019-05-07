@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import Konami from 'react-konami';
 
-import Snow from './components/vendor/react-snow-effect';
+import Snow from './components/vendor/react-snow-effect/'
 import Header from './components/Header';
 import Krash from './components/Krash';
 import KonamiAudio from './components/KonamiAudio';
