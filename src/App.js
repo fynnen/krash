@@ -26,12 +26,12 @@ const App = () => {
     setKonami(!konami);
   }
 
-  function toggleNightMode() {
-    setIsNightMode(isNightMode === true ? false : true);
+  const toggleNightMode = () => {
+    setIsNightMode(!isNightMode);
   }
 
-  function toggleParticipantsInfo() {
-    setShowParticipantsInfo(showParticipantsInfo === true ? false : true);
+  const toggleParticipantsInfo = () => {
+    setShowParticipantsInfo(!showParticipantsInfo);
   }
 
   return (
