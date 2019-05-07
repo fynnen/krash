@@ -31,7 +31,7 @@ const ParticipantsList = props => {
         />
       </div>
       <ul>
-        {participants.map(participant => {
+        {participants.map((participant, i) => {
           return (
             <ParticipantStyled
               key={`participant-list-${participant.id}`}
