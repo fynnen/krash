@@ -1,5 +1,6 @@
 import React from 'react';
 import ParticipantEdit from './ParticipantEdit';
+import ParticipantsEditArea from './styled/ParticipantsEditArea';
 
 export const ParticipantsEdit = (props) => {
   const {
@@ -10,9 +11,11 @@ export const ParticipantsEdit = (props) => {
   } = props;
 
   return (
-    <>
-      <button value="Annuler" onClick={() => cancel()}>Annuler</button>
-      <button value="Sauvegarder" onClick={() => save()}>Sauvegarder</button>
+    <ParticipantsEditArea>
+      <div className="edit-participants-area">
+        <button className="btn-participant" value="Annuler" onClick={() => cancel()}>Annuler</button>
+        <button className="btn-participant" value="Sauvegarder" onClick={() => save()}>Sauvegarder</button>
+      </div>
       <ul>
         {participantInputs.map((participantInput, i) => {
           return (
@@ -24,7 +27,7 @@ export const ParticipantsEdit = (props) => {
           )
         })}
       </ul>
-    </>
+    </ParticipantsEditArea>
   );
 }
 

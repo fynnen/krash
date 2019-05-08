@@ -17,7 +17,7 @@ export const ParticipantsList = (props) => {
   return (
     <ParticipantsListStyled>
       <div className="edit-participants-buttons">
-        <button onClick={() => setEditMode(true)} value="Modifier">
+        <button className="btn-participant" onClick={() => setEditMode(true)} value="Modifier">
           Modifier les participants <IoMdCreate />
         </button>
         <ToggleParticipantsInfo
