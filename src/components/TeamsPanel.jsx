@@ -18,7 +18,7 @@ export const TeamsPanel = (props) => {
             {team.persons.map((participant, i) => {
               return <li
                 key={`team-${x}-participant-${i}`} 
-                dangerouslySetInnerHTML={{__html: `${participant.firstName} ${participant.lastName}`}} 
+                dangerouslySetInnerHTML={{__html: `${participant.lastName} ${participant.firstName}`}} 
               />
             })}
           </ul>

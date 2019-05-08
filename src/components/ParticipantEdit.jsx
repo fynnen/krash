@@ -11,7 +11,7 @@ export const ParticipantEdit = (props) => {
 
   return (
     <li>
-      <h3>{`${participant.firstName} ${participant.lastName}`}</h3>
+      <h3>{`${participant.lastName} ${participant.firstName}`}</h3>
       <div className="participant-edit-infos">
         <select value={participant.location} onChange={(event) => update(participant.id,'location', event.target.value) }>
           <option value={LOCATIONS.MTL}>Montreal</option>

@@ -11,7 +11,7 @@ export const Participant = ({participant, className, showParticipantsInfo}) => {
   if (participantRoleId && participantRoleName && participantLocationId && participantLocationName){
     return (
       <li className={className}>
-        <h3>{`${participant.firstName} ${participant.lastName}`}</h3>
+        <h3>{`${participant.lastName} ${participant.firstName}`}</h3>
         {
           showParticipantsInfo && (
             <div className="participant-info">

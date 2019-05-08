@@ -34,3 +34,9 @@ export const BREAKPOINTS = {
     max: 99999,
   }
 };
+
+export const SORTBY = {
+  ALPHABETIC: 'ALPHABETIC',
+  LOCATION: 'LOCATION',
+  ROLE: 'ROLE',
+};

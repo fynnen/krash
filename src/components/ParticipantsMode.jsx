@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import ParticipantsList from './ParticipantsList';
 import ParticipantsEdit from './ParticipantsEdit';
+import { SORTBY as sb } from "../constants";
 
 const getImmutable = (fromArray) => {
   const newArray = [];
@@ -17,6 +18,8 @@ export const ParticipantsMode = (props) => {
     toggleParticipantsInfo,
     updateParticipants
   } = props;
+
+  let participantsToDisplay = participants;
 
   const [participantInputs, setParticipantsInput] = useState(participants);
   const [editMode, setEditMode] = useState(false);
@@ -40,9 +43,45 @@ export const ParticipantsMode = (props) => {
     setEditMode(false);
   }
 
+  const [alphabeticalAscendingOrder, setAlphabeticalOrder] = useState(true);
+  const [roleAscendingOrder, setRoleOrder] = useState(true);
+  const [locationAscendingOrder, setLocationlOrder] = useState(true);
+
+  const sortParticipants = (sortBy) => {
+    console.log('BEFORE: ', participantsToDisplay);
+    switch(sortBy) {
+      case sb.ALPHABETIC:
+      console.log('HERE');
+        if (alphabeticalAscendingOrder) {
+          participantsToDisplay.sort((x, y) => (x.lastName > y.lastName) ? 1 : -1);
+        } else {
+          participantsToDisplay.sort((x, y) => (x.lastName > y.lastName) ? -1 : 1);
+        }
+        setAlphabeticalOrder(!alphabeticalAscendingOrder);
+        break;
+      case sb.LOCATION:
+        if (roleAscendingOrder) {
+          participantsToDisplay.sort((x, y) => (x.location > y.location) ? 1 : -1);
+        } else {
+          participantsToDisplay.sort((x, y) => (x.location > y.location) ? -1 : 1);
+        }
+        setRoleOrder(!roleAscendingOrder);
+        break;
+      case sb.ROLE:
+        if (locationAscendingOrder) {
+          participantsToDisplay.sort((x, y) => (x.role > y.role) ? 1 : -1);
+        } else {
+          participantsToDisplay.sort((x, y) => (x.role > y.role) ? -1 : 1);
+        }
+        setLocationlOrder(!locationAscendingOrder);
+        break;
+    }
+    console.log('AFTER: ', participantsToDisplay);
+  }
+
   return (
     editMode
-      ? 
+      ?
         <ParticipantsEdit
           cancel={cancelEdit}
           participantInputs={participantInputs}
@@ -52,9 +91,10 @@ export const ParticipantsMode = (props) => {
       :
         <ParticipantsList
           isNightMode={isNightMode}
-          participants={participants}
+          participants={participantsToDisplay}
           setEditMode={setEditMode}
           showParticipantsInfo={showParticipantsInfo}
+          sortParticipants={sortParticipants}
           toggleParticipantsInfo={toggleParticipantsInfo}
         />
   );
