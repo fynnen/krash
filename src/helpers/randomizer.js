@@ -1,6 +1,7 @@
 ﻿import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
 import { LOCATIONS, SORTMETHODS } from '../constants';
+import { ExitStatus } from 'typescript';
 
 export default function randomize(
     nbTeams,
@@ -8,12 +9,12 @@ export default function randomize(
     sortType,
 ) {
     if (!persons || persons.length === 0) throw new Error('Persons must contains persons');
-    
+
     const personsAvailable = persons.filter((p) => p.available === true);
     if (personsAvailable.length === 0) throw new Error('There must be available persons');
 
     if (!nbTeams || nbTeams < 1) throw new Error('Number of teams must be greater than 1');
-    
+
     if (personsAvailable.length < nbTeams) throw new Error('Persons must contain atleast the same number of teams asked.');
 
     const teams = getTeams(nbTeams);
@@ -29,11 +30,16 @@ export default function randomize(
 }
 
 function splittedSort (persons, teams, nbTeams) {
+
+    if (typeof nbTeams === 'string') {
+        nbTeams = parseInt(nbTeams);
+    }
+
     shuffle(persons);
 
-    let mtlPersons = persons.filter(person => person.location === LOCATIONS.MTL);
-    let qcPersons = persons.filter(person => person.location === LOCATIONS.QC);
-    let homePersons = persons.filter(person => person.location === LOCATIONS.HOMES);;
+    let mtlPersons = persons.filter(person => person.location === LOCATIONS.MTL.id);
+    let qcPersons = persons.filter(person => person.location === LOCATIONS.QC.id);
+    let homePersons = persons.filter(person => person.location === LOCATIONS.HOME.id);
 
     // Initialisation des groupes
     // let group = [...Array(nbTeams)].map(() => []); // Not working... :-(
@@ -48,13 +54,15 @@ function splittedSort (persons, teams, nbTeams) {
     let nbQc;
 
     if (mtlPersons.length > qcPersons.length) {
-        nbMtl = Math.round((qcPersons.length / mtlPersons.length) * nbTeams);
+       // nbMtl = Math.round((qcPersons.length / mtlPersons.length) * nbTeams);
+        nbMtl = Math.round((mtlPersons.length / (mtlPersons.length + qcPersons.length)) * nbTeams);
         if (qcPersons.length && (nbMtl === nbTeams))  nbMtl = nbTeams - 1; // Au minium 1 groupe QC si des personnes QC existent
         nbQc = nbTeams - nbMtl;
     } else {
-        nbQc = Math.round((mtlPersons.length / qcPersons.length) * nbTeams);
+        // nbQc = Math.round((mtlPersons.length / qcPersons.length) * nbTeams);
+        nbQc = Math.round((qcPersons.length / (mtlPersons.length + qcPersons.length)) * nbTeams);
         if (mtlPersons.length && (nbQc === nbTeams))  nbQc = nbTeams - 1; // Au minium 1 groupe MTL si des personnesMTL existent
-        nbMtl = nbTeams - nbQc;
+        nbMtl = nbTeams - nbQc; 
     }
 
     // Population des groupes avec les MTL
@@ -67,10 +75,10 @@ function splittedSort (persons, teams, nbTeams) {
 
     // Population des groupes avec les QC
     i = nbTeams - nbQc;
-    while (qcPersons.length) {
+    while (qcPersons.length) { console.log('---> i:',i);
         group[i].push(qcPersons.pop());
         i = i + 1;
-        if (i === nbTeams) i = nbTeams - nbQc;
+        if (i == nbTeams) i = nbTeams - nbQc;
     }
 
     // Population des groupes avec les HOME

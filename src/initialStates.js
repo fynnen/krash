@@ -116,7 +116,7 @@ export const initialParticipants = [
     firstName: "Jacob",
     lastName: "Tremblay",
     role: "BE",
-    location: "MTL",
+    location: "QC",
     available: true
   },
   {
@@ -221,6 +221,62 @@ export const initialParticipants = [
     lastName: "David",
     role: "QA",
     location: "MTL",
+    available: true
+  },
+  {
+    id: 29,
+    firstName: "Jen",
+    lastName: "Simmons",
+    role: "FE",
+    location: "HOME",
+    available: true
+  },
+  {
+    id: 30,
+    firstName: "Mattias",
+    lastName: "Petter Johansson",
+    role: "FE",
+    location: "HOME",
+    available: true
+  },
+  {
+    id: 31,
+    firstName: "Ana",
+    lastName: "Tudor",
+    role: "FE",
+    location: "HOME",
+    available: true
+  },
+  {
+    id: 32,
+    firstName: "Dan",
+    lastName: "Abramov",
+    role: "BE",
+    location: "HOME",
+    available: true
+  },
+  {
+    id: 33,
+    firstName: "Mark",
+    lastName: "Zuckerberg",
+    role: "BE",
+    location: "HOME",
+    available: true
+  },
+  {
+    id: 34,
+    firstName: "Chuck",
+    lastName: "Norris",
+    role: "BE",
+    location: "HOME",
+    available: true
+  },
+  {
+    id: 35,
+    firstName: "Poussin",
+    lastName: "Piou",
+    role: "QA",
+    location: "HOME",
     available: true
   }
 ];
