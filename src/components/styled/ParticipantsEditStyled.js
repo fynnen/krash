@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ParticipantsEditArea = styled.div`
+export const ParticipantsEditStyled = styled.div`
   .edit-participants-area {
     margin-bottom: 20px;
   }
@@ -33,4 +33,4 @@ export const ParticipantsEditArea = styled.div`
   }
 `;
 
-export default ParticipantsEditArea;
+export default ParticipantsEditStyled;

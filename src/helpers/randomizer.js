@@ -78,7 +78,7 @@ function splittedSort (persons, teams, nbTeams) {
     while (qcPersons.length) { console.log('---> i:',i);
         group[i].push(qcPersons.pop());
         i = i + 1;
-        if (i == nbTeams) i = nbTeams - nbQc;
+        if (i === nbTeams) i = nbTeams - nbQc;
     }
 
     // Population des groupes avec les HOME

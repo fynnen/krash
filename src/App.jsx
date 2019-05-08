@@ -34,6 +34,10 @@ const App = () => {
     setShowParticipantsInfo(!showParticipantsInfo);
   };
 
+  const reset = () => {
+    setTeams(null);
+  };
+
   return (
     <div className="App">
       <Konami easterEgg={easterEgg} />
@@ -50,6 +54,7 @@ const App = () => {
         randomize={randomize}
         teams={teams}
         isNightMode={isNightMode}
+        reset={reset}
         showParticipantsInfo={showParticipantsInfo}
         toggleParticipantsInfo={toggleParticipantsInfo}
         updateNumberOfTeams={setNumberOfTeams}

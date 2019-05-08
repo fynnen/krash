@@ -1,24 +1,32 @@
 import React from 'react';
 
-import ParticipantStyled from './styled/ParticipantStyled';
+import TeamsPanelStyled from './styled/TeamsPanelStyled';
 
 export const TeamsPanel = (props) => {
-  const { teams } = props;
+  const {
+    reset,
+    teams
+  } = props;
+
   return (
     <>
     {
       teams.map((team, x) => (
-        <React.Fragment key={`team-${x}`}>
+        <TeamsPanelStyled key={`team-${x}`}>
           <h3>{team.name}</h3>
           <ul>
             {team.persons.map((participant, i) => {
-              return <ParticipantStyled key={`team-${x}-participant-${i}`} participant={participant} />
+              return <li
+                key={`team-${x}-participant-${i}`} 
+                dangerouslySetInnerHTML={{__html: `${participant.firstName} ${participant.lastName}`}} 
+              />
             })}
           </ul>
           <hr />
-        </React.Fragment>
+        </TeamsPanelStyled>
       ))
     }
+    <button className="reset" onClick={reset}>Reset</button>
     </>
   )
 };

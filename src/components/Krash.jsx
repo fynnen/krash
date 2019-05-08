@@ -13,6 +13,7 @@ export const Krash = (props) => {
     numberOfTeams,
     participants,
     randomize,
+    reset,
     showParticipantsInfo,
     teams,
     toggleParticipantsInfo,
@@ -24,12 +25,13 @@ export const Krash = (props) => {
     <KrashStyled className="content">
       <Themes
         theme={isNightMode ? "night" : "day"}
-      /> 
+      />
       <BaseStyles />
       {
         teams.length > 0 ?
           (
             <TeamsPanel
+              reset={reset}
               teams={teams}
             />
           )
