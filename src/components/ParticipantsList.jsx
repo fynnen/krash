@@ -23,7 +23,7 @@ export const ParticipantsList = (props) => {
           <button onClick={() => setEditMode(true)} value="Modifier">
             <IoMdCreate /> Modifier les participants
           </button>
-          <button onClick={() => {sortParticipants(sb.ALPHABETIC)}}><IoIosList /> Tri aplhabétique</button>
+          <button onClick={() => {sortParticipants(sb.ALPHABETIC)}}><IoIosList /> Tri alphabétique</button>
           <button onClick={() => {sortParticipants(sb.LOCATION)}}><IoIosList /> Tri par localisation</button>
           <button onClick={() => {sortParticipants(sb.ROLE)}}><IoIosList /> Tri par rôle</button>
         </div>
