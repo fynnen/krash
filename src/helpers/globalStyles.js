@@ -9,8 +9,6 @@ export const paletteColors = {
   secondary: "#393E46",
   title: "#d65a31",
   light: "#eeeeee",
-  disabled: '#dcdcdc',
-  disabledDark: '#7c7c7c'
 }
 
 const typeColors = {
@@ -27,7 +25,6 @@ const baseColors = {
     background: paletteColors.light,
     button:paletteColors.secondary,
     text: paletteColors.primary,
-    textDisabled: paletteColors.disabled,
     textInverted: paletteColors.light,
     ...typeColors,
   },
@@ -35,7 +32,6 @@ const baseColors = {
     background: paletteColors.secondary,
     button: paletteColors.light,
     text: paletteColors.light,
-    textDisabled: paletteColors.disabledDark,
     textInverted: paletteColors.primary,
     ...typeColors,
   }
@@ -91,7 +87,6 @@ export const Themes = createGlobalStyle`
       --background: ${baseColors[theme].background};
       --button: ${baseColors[theme].button};
       --text: ${baseColors[theme].text};
-      --textDisabled: ${baseColors[theme].textDisabled};
       --textInverted: ${baseColors[theme].textInverted};
 
       --front: ${baseColors[theme].front};
