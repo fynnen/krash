@@ -35,7 +35,7 @@ const App = () => {
   };
 
   const reset = () => {
-    setTeams(null);
+    setTeams({});
   };
 
   return (
