@@ -5,7 +5,7 @@ export const Participant = ({participant, className, showParticipantsInfo}) => {
   if (!participant.firstName ||!participant.lastName || !participant.role || !participant.location) return null;
   const participantRoleId = ROLES[participant.role] && ROLES[participant.role].id;
   const participantRoleName = ROLES[participant.role] && ROLES[participant.role].name;
-  const participantLocationId = LOCATIONS[participant.location] && LOCATIONS[participant.location].id;
+  const participantLocationId = LOCATIONS[participant.location] && LOCATIONS[participant.location].id.toLowerCase();
   const participantLocationName = LOCATIONS[participant.location] && LOCATIONS[participant.location].name;
 
   if (participantRoleId && participantRoleName && participantLocationId && participantLocationName){

@@ -1,7 +1,6 @@
 ﻿import shuffle from 'shuffle-array'; 
 import generateName from 'sillyname';
 import { LOCATIONS, SORTMETHODS } from '../constants';
-import { ExitStatus } from 'typescript';
 
 export default function randomize(
     nbTeams,
