@@ -7,22 +7,22 @@ import Participant from "../Participant";
 export const ParticipantStyled = styled(Participant)`
   margin-bottom: 15px;
 
-  .mtl {
+  .MTL {
     border-left-color: var(--mtl);
   }
-  .qc {
+  .QC {
     border-left-color: var(--qc);
   }
-  .home {
+  .HOME {
     border-left-color: var(--home);  
   }
-  .fe {
+  .FE {
     border-left-color: var(--front);
   }
-  .be {
+  .BE {
     border-left-color: var(--back);
   }
-  .qa {
+  .QA {
     border-left-color: var(--qa);
   }
   h3{

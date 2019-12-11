@@ -48,7 +48,6 @@ export const ParticipantsMode = (props) => {
   const [locationAscendingOrder, setLocationlOrder] = useState(true);
 
   const sortParticipants = (sortBy) => {
-    console.log('BEFORE: ', participantsToDisplay);
     switch(sortBy) {
       case sb.ALPHABETIC:
       console.log('HERE');
@@ -76,7 +75,6 @@ export const ParticipantsMode = (props) => {
         setLocationlOrder(!locationAscendingOrder);
         break;
     }
-    console.log('AFTER: ', participantsToDisplay);
   }
 
   return (

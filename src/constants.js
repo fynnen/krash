@@ -11,9 +11,9 @@ export const LOCATIONS = {
 };
 
 export const ROLES = {
-  FE: {id: "fe", name: "Front-end"},
-  BE: {id: "be", name: "Back-end"},
-  QA: {id: "qa", name: "Qualité assurance"},
+  FE: {id: "FE", name: "Front-end"},
+  BE: {id: "BE", name: "Back-end"},
+  QA: {id: "QA", name: "Qualité assurance"},
 };
 
 export const BREAKPOINTS = {
