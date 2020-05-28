@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import Konami from 'react-konami';
 
 import Snow from './components/vendor/react-snow-effect';
@@ -13,9 +13,15 @@ const App = () => {
   const [participants, setParticipants] = useState(initialParticipants);
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
+  const [headerHeight, setHeaderHeight] = useState(0);
   const [isNightMode, setIsNightMode] = useState(false);
   const [showParticipantsInfo, setShowParticipantsInfo] = useState(true);
   const [konami, setKonami] = useState(false);
+  const headerRef = useRef();
+
+  useEffect(() => {
+    if(headerRef && headerRef.current) setHeaderHeight(headerRef.current.clientHeight);
+  }, [headerRef]);
 
   const randomize = sortMethod => {
     const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
@@ -41,7 +47,7 @@ const App = () => {
   return (
     <div className="App">
       <Konami easterEgg={easterEgg} />
-      <Header toggleNightMode={toggleNightMode} isNightMode={isNightMode} />
+      <Header toggleNightMode={toggleNightMode} isNightMode={isNightMode} headerRef={headerRef} />
       {konami && (
         <>
           <Snow />
@@ -53,6 +59,7 @@ const App = () => {
         participants={participants}
         randomize={randomize}
         teams={teams}
+        bodyHeight={600 - headerHeight}
         isNightMode={isNightMode}
         reset={reset}
         showParticipantsInfo={showParticipantsInfo}

@@ -5,14 +5,16 @@ import ToggleNightMode from './ToggleNightMode';
 
 export const Header = (props) => {
   const {
+    headerRef,
     isNightMode,
     toggleNightMode,
-  } = props; 
-  
+  } = props;
+
   return (
     <HeaderStyled
       className="App-header"
       isNightMode={isNightMode}
+      ref={headerRef}
     >
       <h1>KrAsH</h1>
       <ToggleNightMode

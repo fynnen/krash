@@ -82,9 +82,9 @@ export const BaseStyles = createGlobalStyle`
 `;
 
 export const Themes = createGlobalStyle`
-  ${({theme}) => `
+  ${({bodyHeight, theme}) => `
     :root {
-      --contentHeight: 600px;
+      --contentHeight: ${bodyHeight}px;
       --background: ${baseColors[theme].background};
       --button: ${baseColors[theme].button};
       --text: ${baseColors[theme].text};
