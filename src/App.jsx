@@ -2,6 +2,7 @@
 import Konami from 'react-konami';
 
 import Snow from './components/vendor/react-snow-effect';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Krash from './components/Krash';
 import KonamiAudio from './components/KonamiAudio';
@@ -60,6 +61,7 @@ const App = () => {
         updateNumberOfTeams={setNumberOfTeams}
         updateParticipants={setParticipants}
       />
+      <Footer />
     </div>
   );
 };
