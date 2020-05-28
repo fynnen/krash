@@ -7,7 +7,10 @@ export const HeaderStyled = styled.header`
     background: ${isNightMode ? paletteColors.primary : paletteColors.primary};
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+		padding: 20px;
+		position: sticky;
+		top: 0;
+		z-index: 1;
 
     h1 {
       align-items: center;
