@@ -9,8 +9,7 @@ export const KrashStyled = styled.div`
     margin-bottom: 20px;
   }
 
-  button.btn-participant,
-  button.reset {
+  button.btn-participant {
     margin-right: 10px;
     padding-left: 10px;
     padding-right: 10px;

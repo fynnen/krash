@@ -56,19 +56,21 @@ const App = () => {
         </>
       )}
       <Krash
-        numberOfTeams={numberOfTeams}
         participants={participants}
-        randomize={randomize}
         teams={teams}
         bodyHeight={600 - headerHeight}
         isNightMode={isNightMode}
-        reset={reset}
         showParticipantsInfo={showParticipantsInfo}
         toggleParticipantsInfo={toggleParticipantsInfo}
+      />
+      <Footer
+        numberOfTeams={numberOfTeams}
+        teams={teams}
+        reset={reset}
+        randomize={randomize}
         updateNumberOfTeams={setNumberOfTeams}
         updateParticipants={setParticipants}
       />
-      <Footer />
     </div>
   );
 };
