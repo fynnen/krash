@@ -4,7 +4,6 @@ import TeamsPanelStyled from './styled/TeamsPanelStyled';
 
 export const TeamsPanel = (props) => {
   const {
-    reset,
     teams
   } = props;
 
@@ -26,7 +25,6 @@ export const TeamsPanel = (props) => {
         </TeamsPanelStyled>
       ))
     }
-    <button className="reset" onClick={reset}>Reset</button>
     </>
   )
 };

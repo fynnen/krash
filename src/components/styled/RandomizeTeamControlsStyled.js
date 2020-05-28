@@ -6,11 +6,8 @@ import { mediaMin, mediaMinMax } from  "../../helpers/mediaQuery";
 
 export const RandomizeTeamControlsStyled = styled.div`
   ${({ isNightMode }) => `
-    border-top: 1px solid ${isNightMode ? paletteColors.light : paletteColors.secondary};
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    padding-top: 20px;
     ${mediaMin(bp.SM.min, `
       flex-direction: row;
     `)}
@@ -39,6 +36,7 @@ export const RandomizeTeamControlsStyled = styled.div`
     }
     label {
       align-items: center;
+      color: white;
       display: flex;
       justify-content: space-between;
       max-width: 280px;
