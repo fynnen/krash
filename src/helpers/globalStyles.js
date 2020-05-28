@@ -19,7 +19,7 @@ const typeColors = {
   qc: 'pink',
   home: 'grey',
 }
-  
+
 const baseColors = {
   day: {
     background: paletteColors.light,
@@ -47,9 +47,9 @@ export const BaseStyles = createGlobalStyle`
     color: var(--text);
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 
-    "Segoe UI", "Roboto", "Oxygen", 
-    "Ubuntu", "Cantarell", "Fira Sans", 
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -84,6 +84,7 @@ export const BaseStyles = createGlobalStyle`
 export const Themes = createGlobalStyle`
   ${({theme}) => `
     :root {
+      --contentHeight: 600px;
       --background: ${baseColors[theme].background};
       --button: ${baseColors[theme].button};
       --text: ${baseColors[theme].text};
