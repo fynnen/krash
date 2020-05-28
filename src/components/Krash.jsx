@@ -8,6 +8,7 @@ import TeamsPanel from './TeamsPanel';
 
 export const Krash = (props) => {
   const {
+    bodyHeight,
     isNightMode,
     participants,
     showParticipantsInfo,
@@ -20,6 +21,7 @@ export const Krash = (props) => {
     <KrashStyled className="content">
       <Themes
         theme={isNightMode ? "night" : "day"}
+        bodyHeight={bodyHeight}
       />
       <BaseStyles />
       {
