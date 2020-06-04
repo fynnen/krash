@@ -25,8 +25,14 @@ const App = () => {
 
 
   const handleOnResize = () => {
-    setViewportHeight(window.innerHeight);
-  }
+		recalculateHeights();
+	}
+
+	const recalculateHeights = () => {
+		setViewportHeight(window.innerHeight);
+		setfooterHeight(footerRef.current.clientHeight);
+		setHeaderHeight(headerRef.current.clientHeight);
+	}
 
   useEffect(() => {
     if(footerRef && footerRef.current) setfooterHeight(footerRef.current.clientHeight);
