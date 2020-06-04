@@ -15,14 +15,29 @@ const App = () => {
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(600);
   const [isNightMode, setIsNightMode] = useState(false);
   const [showParticipantsInfo, setShowParticipantsInfo] = useState(true);
   const [konami, setKonami] = useState(false);
   const headerRef = useRef();
 
+
+  const handleOnResize = () => {
+    setViewportHeight(window.innerHeight);
+  }
+
   useEffect(() => {
     if(headerRef && headerRef.current) setHeaderHeight(headerRef.current.clientHeight);
   }, [headerRef]);
+
+  useEffect(() => {
+    handleOnResize();
+    window.addEventListener('resize', handleOnResize);
+
+    return () => {
+      window.removeEventListener('resize', handleOnResize);
+    };
+  }, []);
 
   const randomize = sortMethod => {
     const randomizedTeams = randomizer(numberOfTeams, participants, sortMethod);
@@ -58,7 +73,7 @@ const App = () => {
       <Krash
         participants={participants}
         teams={teams}
-        bodyHeight={600 - headerHeight}
+        bodyHeight={viewportHeight - headerHeight}
         isNightMode={isNightMode}
         showParticipantsInfo={showParticipantsInfo}
         toggleParticipantsInfo={toggleParticipantsInfo}
