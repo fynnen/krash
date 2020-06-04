@@ -14,17 +14,23 @@ const App = () => {
   const [participants, setParticipants] = useState(initialParticipants);
   const [teams, setTeams] = useState([]);
   const [numberOfTeams, setNumberOfTeams] = useState(3);
+  const [footerHeight, setfooterHeight] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(600);
   const [isNightMode, setIsNightMode] = useState(false);
   const [showParticipantsInfo, setShowParticipantsInfo] = useState(true);
   const [konami, setKonami] = useState(false);
+  const footerRef = useRef();
   const headerRef = useRef();
 
 
   const handleOnResize = () => {
     setViewportHeight(window.innerHeight);
   }
+
+  useEffect(() => {
+    if(footerRef && footerRef.current) setfooterHeight(footerRef.current.clientHeight);
+  }, [footerRef]);
 
   useEffect(() => {
     if(headerRef && headerRef.current) setHeaderHeight(headerRef.current.clientHeight);
@@ -73,12 +79,13 @@ const App = () => {
       <Krash
         participants={participants}
         teams={teams}
-        bodyHeight={viewportHeight - headerHeight}
+        bodyHeight={viewportHeight - (footerHeight + headerHeight)}
         isNightMode={isNightMode}
         showParticipantsInfo={showParticipantsInfo}
         toggleParticipantsInfo={toggleParticipantsInfo}
       />
       <Footer
+        footerRef={footerRef}
         numberOfTeams={numberOfTeams}
         teams={teams}
         reset={reset}
