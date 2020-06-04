@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { paletteColors } from "../../helpers/globalStyles";
 
-export const HeaderStyled = styled.header`
+export const FooterStyled = styled.footer`
   ${({ isNightMode }) => `
     align-content: center;
     background: ${isNightMode ? paletteColors.primary : paletteColors.primary};
@@ -31,4 +31,4 @@ export const HeaderStyled = styled.header`
   `}
 `;
 
-export default HeaderStyled;
+export default FooterStyled;
