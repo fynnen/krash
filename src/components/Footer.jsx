@@ -5,21 +5,23 @@ import RandomizeTeamControls from './RandomizeTeamControls';
 
 export const Footer = (props) => {
   const {
+    footerRef,
     isNightMode,
     numberOfTeams,
     randomize,
     reset,
     teams,
     updateNumberOfTeams,
-  } = props; 
-  
+  } = props;
+
   return (
     <FooterStyled
       className="App-Footer"
       isNightMode={isNightMode}
+      ref={footerRef}
     >
-      {teams.length > 0 ? 
-        (<button className="reset" onClick={reset}>Reset</button>) 
+      {teams.length > 0 ?
+        (<button className="reset" onClick={reset}>Reset</button>)
         :
         <RandomizeTeamControls
           isNightMode={isNightMode}
