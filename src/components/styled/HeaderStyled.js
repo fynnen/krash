@@ -4,7 +4,7 @@ import { mediaMin } from  "../../helpers/mediaQuery";
 import { paletteColors } from "../../helpers/globalStyles";
 
 export const HeaderStyled = styled.header`
-  ${({ isNightMode }) => css`
+  ${({ isNightMode, isVerticalText }) => css`
     align-content: center;
     background: ${isNightMode ? paletteColors.primary : paletteColors.primary};
     display: flex;
@@ -19,11 +19,27 @@ export const HeaderStyled = styled.header`
 		`)}
 
     h1 {
-      align-items: center;
       color: ${paletteColors.title};
       display: flex;
+      flex-grow: 1;
       font-size: 36px;
       font-weight: 700;
+      writing-mode: ${isVerticalText ? 'vertical-lr' : 'horizontal-tb'}
+    }
+
+    .toggle-text-align {
+      background: transparent;
+      border-radius: 25px;
+      height: 48px;
+      margin-right: 8px;
+      width: 50px;
+      
+      svg {
+        background: #eeeeee;
+        border-radius: 25px;
+        height: 36px;
+        width: 100%;        
+      }
     }
   `}
 `;
