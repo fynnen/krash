@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import HeaderStyled from './styled/HeaderStyled';
 import ToggleNightMode from './ToggleNightMode';
+import useSize from '../hooks/useSize';
+import { useContentHeight } from '../context/ContentHeightContext';
 
 export const Header = (props) => {
   const {
-    headerRef,
     isNightMode,
     toggleNightMode,
-  } = props;
+	} = props;
+
+	const headerRef = useRef();
+	const headerSize = useSize(headerRef);
+	const contentHeight = useContentHeight();
+
+	useEffect(() => {
+    contentHeight.setHeaderHeight(headerSize.height);
+  }, [headerSize.height]);
 
   return (
     <HeaderStyled
