@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from 'react';
 
 import FooterStyled from './styled/FooterStyled';
 import RandomizeTeamControls from './RandomizeTeamControls';
-import useSize from '../hooks/useSize';
 import { useContentHeight } from '../context/ContentHeightContext';
 
 export const Footer = (props) => {
@@ -16,12 +15,19 @@ export const Footer = (props) => {
   } = props;
 
 	const footerRef = useRef();
-	const footerSize = useSize(footerRef);
+	const footerHeight = useRef();
 	const contentHeight = useContentHeight();
 
+	const footerSizeChangeObserver = new ResizeObserver(entries => {
+		if (entries[0].target.clientHeight !== footerHeight.current) {
+			footerHeight.current = entries[0].target.clientHeight;
+			contentHeight.setFooterHeight(footerHeight.current);
+		}
+	});
+
 	useEffect(() => {
-    contentHeight.setFooterHeight(footerSize.height);
-  }, [footerSize.height]);
+		footerSizeChangeObserver.observe(footerRef.current);
+	}, []);
 
   return (
     <FooterStyled

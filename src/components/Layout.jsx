@@ -76,7 +76,6 @@ export const Layout = (props) => {
 			<Krash
 				participants={participants}
 				teams={teams}
-				//bodyHeight={viewportHeight - (footerHeight + headerHeight)}
 				contentHeight={viewportHeight - (contentHeight.footerHeight + contentHeight.headerHeight)}
 				isNightMode={isNightMode}
 				showParticipantsInfo={showParticipantsInfo}

@@ -3,7 +3,6 @@ import { IoIosArrowDropright, IoIosArrowDropdown } from 'react-icons/io';
 
 import HeaderStyled from './styled/HeaderStyled';
 import ToggleNightMode from './ToggleNightMode';
-import useSize from '../hooks/useSize';
 import { useContentHeight } from '../context/ContentHeightContext';
 
 export const Header = (props) => {
@@ -13,12 +12,19 @@ export const Header = (props) => {
 	} = props;
 
 	const headerRef = useRef();
-	const headerSize = useSize(headerRef);
+	const headerHeight = useRef();
 	const contentHeight = useContentHeight();
 
+	const headerSizeChangeObserver = new ResizeObserver(entries => {
+		if (entries[0].target.clientHeight !== headerHeight.current) {
+			headerHeight.current = entries[0].target.clientHeight;
+			contentHeight.setHeaderHeight(headerHeight.current);
+		}
+	});
+
 	useEffect(() => {
-    contentHeight.setHeaderHeight(headerSize.height);
-  }, [headerSize.height]);
+		headerSizeChangeObserver.observe(headerRef.current);
+	}, []);
 
   const [isVerticalText, setisVerticalText] = useState(false);
 
