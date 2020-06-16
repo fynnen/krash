@@ -18,9 +18,9 @@ export const Footer = (props) => {
 	const footerHeight = useRef();
 	const contentHeight = useContentHeight();
 
-	const footerSizeChangeObserver = new ResizeObserver(entries => {
-		if (entries[0].target.clientHeight !== footerHeight.current) {
-			footerHeight.current = entries[0].target.clientHeight;
+	const footerSizeChangeObserver = new ResizeObserver(([entry]) => {
+		if (entry.target.clientHeight !== footerHeight.current) {
+			footerHeight.current = entry.target.clientHeight;
 			contentHeight.setFooterHeight(footerHeight.current);
 		}
 	});

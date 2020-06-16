@@ -15,9 +15,9 @@ export const Header = (props) => {
 	const headerHeight = useRef();
 	const contentHeight = useContentHeight();
 
-	const headerSizeChangeObserver = new ResizeObserver(entries => {
-		if (entries[0].target.clientHeight !== headerHeight.current) {
-			headerHeight.current = entries[0].target.clientHeight;
+	const headerSizeChangeObserver = new ResizeObserver(([entry]) => {
+		if (entry.target.clientHeight !== headerHeight.current) {
+			headerHeight.current = entry.target.clientHeight;
 			contentHeight.setHeaderHeight(headerHeight.current);
 		}
 	});
